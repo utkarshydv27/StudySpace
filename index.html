@@ -39,6 +39,32 @@
   #chapterNotePanel a:after{content:" (" attr(href) ")";font-size:8pt}
   .formula-box,.exam-box,.practice-box{break-inside:avoid}
 }
+
+.quiz-selectors{display:grid;grid-template-columns:150px minmax(180px,1fr) minmax(220px,1.4fr);gap:12px;margin:6px 0 18px}
+.quiz-selectors label{display:grid;gap:6px;font-size:.9rem;font-weight:750}
+.quiz-instructions{background:#f8faff;border-left:4px solid var(--blue);padding:12px 15px;margin:12px 0 16px;border-radius:0 12px 12px 0;color:var(--muted)}
+#quiz{padding:18px;margin-top:12px}
+.quizquestion{font-size:1.22rem;line-height:1.45;margin:16px 0}
+.answers{gap:10px}
+.quiz-option{display:flex;align-items:flex-start;text-align:left;gap:10px;background:#fff!important;color:var(--ink)!important;border:1px solid var(--line)!important;font-weight:550;line-height:1.45;width:100%}
+.quiz-option:disabled{cursor:default;opacity:1}
+.option-letter{flex:0 0 28px;width:28px;height:28px;border-radius:8px;background:var(--pale);color:var(--blue);display:grid;place-items:center;font-weight:850}
+.quiz-option.answer-correct{border-color:#21835e!important;background:#ecf8f2!important}
+.quiz-option.answer-correct .option-letter{background:#d6f1e4;color:#126044}
+.quiz-option.answer-wrong{border-color:#d87960!important;background:#fff4f0!important}
+.quiz-feedback{border-radius:13px;padding:14px;margin:12px 0;background:#fff;border:1px solid var(--line)}
+.quiz-feedback.is-correct{border-left:4px solid #21835e}
+.quiz-feedback.needs-review{border-left:4px solid #d87960}
+.quiz-feedback p{margin:8px 0}
+.quiz-feedback h4{margin:14px 0 5px}
+.quiz-feedback ul{padding-left:22px;margin:7px 0}
+.quiz-feedback li{padding:3px 0}
+.quiz-result{border:1px solid var(--line);background:#fff;border-radius:13px;padding:18px;margin:12px 0}
+.quiz-result strong{font-size:1.35rem}
+.quiz-result p{margin:8px 0}
+#quizStatus{margin-top:12px}
+@media(max-width:760px){.quiz-selectors{grid-template-columns:1fr 1fr}.quiz-selectors label:last-child{grid-column:1/-1}}
+@media(max-width:480px){.quiz-selectors{grid-template-columns:1fr}.quiz-selectors label:last-child{grid-column:auto}#quiz{padding:13px}.quiz-option{padding:10px 11px}}
 </style>
 </head>
 <body>
@@ -83,8 +109,27 @@
 <section class="section wrap" id="library"><div class="heading"><div><h2>Find what you need</h2><p>Search a topic or filter by class and subject.</p></div></div>
 <div class="tools"><input class="field" id="search" placeholder="Search topics, e.g. equations, motion…" aria-label="Search study guides"><select class="field" id="classFilter" aria-label="Filter by class"><option value="all">All classes</option><option>Class 9</option><option>Class 10</option><option>Class 11</option><option>Class 12</option></select><select class="field" id="subjectFilter" aria-label="Filter by subject"><option value="all">All subjects</option><option>Mathematics</option><option>Science</option><option>Physics</option><option>Chemistry</option><option>Biology</option><option>English</option><option>Social Science</option><option>Study Skills</option></select></div>
 <div class="grid" id="guides"></div><p class="small" style="margin-top:14px">These are introductory original summaries and practice starters. Confirm your board and textbook for exact syllabus coverage.</p></section>
-<section class="section" id="practice" style="background:#eef2ff"><div class="wrap split"><div><div class="eyebrow">Check your understanding</div><h2 style="font-size:1.8rem;margin:7px 0">Quick practice</h2><p style="color:var(--muted)">Answer a question, read the explanation, and try again. Sample questions are for practice—not official exam papers.</p><div class="panel" id="quiz"><div class="row"><span class="tag" id="qcount">QUESTION 1</span><span class="small" id="score">Score: 0</span></div><p class="quizquestion" id="question"></p><div class="answers" id="answers"></div><div class="feedback" id="feedback" aria-live="polite"></div><button class="secondary" id="next" style="display:none">Next question →</button></div></div>
-<div class="panel"><div class="icon">📚</div><h3>Trusted free resources</h3><p class="small">Use official learning portals for textbooks, lessons and additional study material.</p><div class="resources"><a href="https://ncert.nic.in/textbook.php" target="_blank" rel="noopener noreferrer">NCERT textbooks ↗</a><a href="https://diksha.gov.in/" target="_blank" rel="noopener noreferrer">DIKSHA ↗</a><a href="https://swayam.gov.in/" target="_blank" rel="noopener noreferrer">SWAYAM ↗</a></div><p class="small" style="margin-top:16px">External websites have their own content and policies.</p></div></div></section>
+<section class="section" id="practice" style="background:#eef2ff"><div class="wrap">
+  <div class="heading"><div><div class="eyebrow">Board-style revision practice</div><h2>Quiz for your class, subject and chapter</h2><p>First answer from memory, then learn why the answer works and what to revise for the board. Questions are original StudySpace practice—not copied official paper questions.</p></div></div>
+  <div class="panel">
+    <div class="quiz-selectors">
+      <label for="quizClass">Class<select class="field" id="quizClass"><option>Class 9</option><option selected>Class 10</option><option>Class 11</option><option>Class 12</option></select></label>
+      <label for="quizSubject">Subject<select class="field" id="quizSubject" aria-label="Choose quiz subject"></select></label>
+      <label for="quizTopic">Chapter / topic<select class="field" id="quizTopic" aria-label="Choose quiz chapter"><option value="all">All topics · mixed revision</option></select></label>
+    </div>
+    <div class="quiz-instructions"><strong>How to use this quiz:</strong> choose the best answer, read the explanation even when correct, and note which key point you need to revise. A high score is useful practice, but it does not guarantee board exam questions.</div>
+    <div class="panel" id="quiz">
+      <div class="row"><span class="tag" id="qcount">QUESTION 1</span><span class="small" id="score">Score: 0</span></div>
+      <p class="quizquestion" id="question"></p><div class="answers" id="answers"></div>
+      <div class="feedback" id="feedback" aria-live="polite"></div>
+      <button class="secondary" id="next" style="display:none">Next question →</button>
+    </div>
+    <p class="small" id="quizStatus" role="status" aria-live="polite"></p>
+  </div>
+  <div class="panel" style="margin-top:14px"><div class="icon">🎯</div><h3>Board preparation: what should you prioritise?</h3><p>Start with the topics in the official 2026–27 syllabus. For the selected subject, also practise questions and formats from the board's official question bank and model paper. These are stronger references than an unofficial “important questions” list, and the exact paper cannot be predicted.</p>
+    <div class="resources"><a href="https://upmsp.edu.in/Board_QuestionBank.aspx" target="_blank" rel="noopener noreferrer">Official UPMSP question bank ↗</a><a href="https://upmsp.edu.in/Board_ModelPaper.aspx" target="_blank" rel="noopener noreferrer">Official UPMSP model papers ↗</a><a href="https://upmsp.edu.in/Board_Syllabus.aspx" target="_blank" rel="noopener noreferrer">Official syllabus ↗</a></div>
+  </div>
+</div></section>
 <section class="section wrap" id="tools"><div class="heading"><div><h2>Your study corner</h2><p>Small tools to help you get started. Checklist and notes stay in this browser only.</p></div></div><div class="split"><div class="panel"><div class="row"><h3>Today's checklist</h3><span class="small" id="progress">0 / 4 done</span></div><div class="checklist" id="checks"><label><input type="checkbox"> Review one topic for 15 minutes</label><label><input type="checkbox"> Solve five practice questions</label><label><input type="checkbox"> Write down one doubt</label><label><input type="checkbox"> Revise yesterday's notes</label></div><button class="secondary" id="resetChecks" style="margin-top:14px">Reset checklist</button></div><div class="panel timer"><h3>Focus timer</h3><div class="time" id="time">25:00</div><p class="small">Choose a session and focus on one task.</p><div class="timerbuttons"><button class="secondary duration" data-min="15">15 min</button><button class="secondary duration" data-min="25">25 min</button><button class="secondary duration" data-min="45">45 min</button></div><div class="timerbuttons" style="margin-top:10px"><button id="startTimer">Start</button><button id="resetTimer" class="secondary">Reset</button></div><p id="timerStatus" class="small" aria-live="polite"></p></div></div>
 <div class="panel" style="margin-top:16px"><h3>Write down a doubt</h3><p class="small">Jot down a question to ask a teacher or revisit later. This is not sent anywhere.</p><textarea id="doubt" class="note" placeholder="Example: I get confused when solving equations with brackets…"></textarea><div class="row" style="margin-top:10px"><span class="small" id="noteStatus">Saved only in this browser when you press Save.</span><button id="saveNote">Save note</button></div></div></section>
 </main>
@@ -114,28 +159,6 @@ const guides=[
 ];
 const $=id=>document.getElementById(id);function renderGuides(){const q=$("search").value.trim().toLowerCase(),cl=$("classFilter").value,sub=$("subjectFilter").value;const items=guides.filter(g=>(!q||(g.title+" "+g.subject+" "+g.desc+" "+g.body).toLowerCase().includes(q))&&(cl==="all"||g.classes.includes(cl))&&(sub==="all"||g.subject===sub));$("guides").innerHTML=items.length?items.map((g,i)=>'<article class="card"><div class="icon">'+g.icon+'</div><div class="tag">'+g.subject+' · '+g.classes.join(", ")+'</div><h3>'+g.title+'</h3><p>'+g.desc+'</p><button class="secondary open" data-guide="'+guides.indexOf(g)+'">Read guide →</button></article>').join(""):'<div class="empty">No guides match those filters yet. Try another topic or choose all subjects.</div>';document.querySelectorAll("[data-guide]").forEach(b=>b.addEventListener("click",()=>{const g=guides[Number(b.dataset.guide)];alert(g.title+"\n\n"+g.body+"\n\nStudy tip: explain this topic in your own words, then try a practice question.");}));}
 ["search","classFilter","subjectFilter"].forEach(id=>$(id).addEventListener(id==="search"?"input":"change",renderGuides));renderGuides();
-const qs=[
-{q:"Which is a rational number?",a:["√2","π","3/4","√5"],c:2,e:"3/4 is a ratio of two integers with non-zero denominator, so it is rational."},
-{q:"Solve: 2x + 3 = 11.",a:["x = 4","x = 7","x = 5","x = 14"],c:0,e:"Subtract 3 from both sides: 2x = 8. Divide by 2: x = 4."},
-{q:"Which is the SI unit of force?",a:["Joule","Newton","Watt","Pascal"],c:1,e:"Force is measured in newtons (N)."},
-{q:"In a right triangle, sin θ equals…",a:["Adjacent/hypotenuse","Opposite/adjacent","Opposite/hypotenuse","Hypotenuse/opposite"],c:2,e:"Sine is opposite side divided by hypotenuse."},
-{q:"What does a balanced chemical equation conserve?",a:["Colour only","Number of atoms of each element","Temperature always","Volume always"],c:1,e:"Atoms of each element are conserved in a chemical reaction."},
-{q:"Which organelle is associated with cellular energy release?",a:["Mitochondrion","Cell wall","Ribosome only","Vacuole only"],c:0,e:"Mitochondria are involved in cellular respiration and energy conversion."},
-{q:"Average speed is calculated as…",a:["Time/distance","Displacement/time only","Total distance/total time","Mass × acceleration"],c:2,e:"Average speed equals total distance travelled divided by total time taken."},
-{q:"What is a good first step in a numerical problem?",a:["Guess the answer","Write given values and what is asked","Skip units","Use every formula"],c:1,e:"List known values, identify the unknown and keep units consistent."},
-{q:"Which is a vector quantity?",a:["Mass","Time","Temperature","Displacement"],c:3,e:"Displacement has magnitude and direction."},
-{q:"What is active recall?",a:["Highlighting every line","Testing what you remember without looking","Reading the same page repeatedly","Studying without breaks"],c:1,e:"Active recall means retrieving information from memory, then checking it."},
-{q:"For x² + 5x + 6, which factorisation is correct?",a:["(x+1)(x+6)","(x+2)(x+3)","(x−2)(x−3)","(x+5)(x+1)"],c:1,e:"2 × 3 = 6 and 2 + 3 = 5."},
-{q:"What should you check after solving an equation?",a:["Change the question","Substitute the answer back","Remove all units","Round every number"],c:1,e:"Substitution checks whether the result satisfies the original equation."},
-{q:"Which portal provides official NCERT textbooks?",a:["NCERT textbook portal","A random social post","A game store","An unverified file-sharing link"],c:0,e:"Use NCERT's official textbook page for NCERT textbook access."},
-{q:"A scalar has…",a:["Magnitude only","Direction only","No magnitude","Always both direction and magnitude"],c:0,e:"Scalars have magnitude but no direction."},
-{q:"Which revision habit is generally useful?",a:["Only cramming once","Never checking mistakes","Spaced practice and self-testing","Studying through the whole night"],c:2,e:"Spaced revision and retrieval practice support long-term learning."},
-{q:"A history answer is stronger when it includes…",a:["Unrelated facts","Causes, events and evidence","Only decorative headings","Dates guessed from memory"],c:1,e:"Organised explanation and accurate examples make historical reasoning clearer."},
-{q:"In a map, what helps explain symbols?",a:["Legend/key","Page number","Font size","Cover"],c:0,e:"The map legend explains the symbols used."},
-{q:"The mole concept links amount of substance with…",a:["A count of particles","Only colour","Only temperature","Map distance"],c:0,e:"A mole represents a defined number of specified entities."},
-{q:"What is the first law of motion often associated with?",a:["Inertia","Refraction","Acidity","Photosynthesis"],c:0,e:"Newton's first law describes inertia: motion does not change without a net external force."},
-{q:"When writing an exam answer, you should first…",a:["Ignore command words","Answer a different question","Identify what the question asks","Write as much as possible"],c:2,e:"Command words such as explain, compare or define tell you what kind of answer is needed."}
-];let qi=0,score=0,answered=false;function showQ(){$("qcount").textContent="QUESTION "+(qi+1)+" / "+qs.length;$("score").textContent="Score: "+score;$("question").textContent=qs[qi].q;$("answers").innerHTML=qs[qi].a.map((a,i)=>'<button data-answer="'+i+'">'+String.fromCharCode(65+i)+'. '+a+'</button>').join("");$("feedback").textContent="";$("next").style.display="none";answered=false;document.querySelectorAll("[data-answer]").forEach(b=>b.addEventListener("click",()=>{if(answered)return;answered=true;const n=Number(b.dataset.answer),right=n===qs[qi].c;if(right)score++;$("score").textContent="Score: "+score;$("feedback").textContent=(right?"Correct! ":"Not quite. ")+qs[qi].e;$("feedback").style.color=right?"var(--green)":"#b34c2e";$("next").style.display="inline-block";$("next").textContent=qi===qs.length-1?"Restart quiz ↻":"Next question →";}));}showQ();$("next").addEventListener("click",()=>{if(qi===qs.length-1){qi=0;score=0}else qi++;showQ()});
 $("checks").addEventListener("change",()=>{const all=[...$("checks").querySelectorAll("input")];$("progress").textContent=all.filter(x=>x.checked).length+" / "+all.length+" done";});$("resetChecks").addEventListener("click",()=>{$("checks").querySelectorAll("input").forEach(x=>x.checked=false);$("progress").textContent="0 / 4 done";});
 let total=1500,remain=1500,handle=null;function showTime(){$("time").textContent=String(Math.floor(remain/60)).padStart(2,"0")+":"+String(remain%60).padStart(2,"0")}document.querySelectorAll(".duration").forEach(b=>b.addEventListener("click",()=>{clearInterval(handle);handle=null;total=Number(b.dataset.min)*60;remain=total;showTime();$("startTimer").textContent="Start";$("timerStatus").textContent="Ready for a "+b.dataset.min+" minute session."}));$("startTimer").addEventListener("click",()=>{if(handle){clearInterval(handle);handle=null;$("startTimer").textContent="Resume";return}if(remain<=0)remain=total;handle=setInterval(()=>{remain--;showTime();if(remain<=0){clearInterval(handle);handle=null;$("timerStatus").textContent="Session complete — take a short break!";$("startTimer").textContent="Start again"}},1000);$("startTimer").textContent="Pause";$("timerStatus").textContent="Focus on one task."});$("resetTimer").addEventListener("click",()=>{clearInterval(handle);handle=null;remain=total;showTime();$("startTimer").textContent="Start";$("timerStatus").textContent="Timer reset."});$("saveNote").addEventListener("click",()=>{$("noteStatus").textContent="Note ready to copy or save manually. It has not been sent anywhere."});$("year").textContent=new Date().getFullYear();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script><script src="syllabus-data.js"></script><script src="syllabus-app.js"></script></body></html>
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script><script src="syllabus-data.js"></script><script src="syllabus-app.js"></script><script src="quiz-app.js"></script></body></html>
