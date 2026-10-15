@@ -1,9 +1,11 @@
 # StudySpace
 
-A free, responsive student learning hub for Classes 9–12. Open to all students; no account or student personal data is required.
+A free, responsive student learning hub for Classes 9–12, with official UPMSP syllabus links, chapter/topic revision notes and per-topic PDF downloads. Open to all students; no account or student personal data is required.
 
 ## Features
-- Searchable, filterable introductory study guides across Mathematics, Science, Physics, Chemistry, Biology, English, Social Science and Study Skills.
+- Chapter/topic selector for Classes 9–12, with original explanations, key revision points, formulas where relevant and self-check questions.
+- Downloadable PDF revision sheet for the selected chapter/topic, with print-to-PDF fallback.
+- Class-wise notes for Mathematics, Science, Social Science, English, senior Physics/Chemistry/Biology, and selected Humanities/Commerce subjects.
 - 20 sample MCQs with immediate feedback and explanations.
 - Focus timer, study checklist and a local doubt-writing tool.
 - Links to NCERT textbooks, DIKSHA and SWAYAM.
@@ -16,10 +18,10 @@ A free, responsive student learning hub for Classes 9–12. Open to all students
 4. Wait for the Pages deployment and open the URL shown in Settings → Pages.
 
 ## Google Search
-After Pages is live, submit the published URL in Google Search Console. Search indexing is not instant or guaranteed. This site includes basic title, description and robots metadata; add a sitemap after the final published URL is known.
+After Pages is live, submit the published URL in Google Search Console. Search indexing is not instant or guaranteed. Basic title, description and robots metadata are included. The sitemap is available at https://utkarshydv27.github.io/StudySpace/sitemap.xml; submit it in Search Console after verifying site ownership.
 
 ## Content note
-StudySpace is an independent educational resource, not an official school website. The guides and questions are introductory original learning aids, not a complete syllabus, board-certified material or previous-year papers. Confirm the correct board and syllabus before expanding the content. External resource links are to NCERT, DIKSHA and SWAYAM.
+StudySpace is an independent educational resource, not an official school website or a UPMSP product. The notes are original revision aids—not official board-issued notes, a guarantee of exam questions, or a replacement for prescribed textbooks. Official UPMSP PDFs are linked for checking syllabus coverage. Coverage of individual notes is not yet exhaustive for every vocational/elective subject; students should confirm their registered subject combination and the latest official syllabus. External learning links include NCERT, DIKSHA and SWAYAM.
 
 
 ## Official UP Board syllabus links
