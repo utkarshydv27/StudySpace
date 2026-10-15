@@ -33,6 +33,13 @@
   }
   function boardPlan(subject) {
     const v = String(subject || "").toLowerCase();
+    if (/social science/.test(v)) {
+      if (/revolution|nationalism|colonial|pastoral|empire|global world|industrialisation|print culture|partition|kingship|forest society|1857|cold war|bipolarity|harappan|bhakti|sufi/.test(t)) return "History ko kahani ki tarah samjho: pehle situation kya thi, change kyun hua, kya events hue, aur unke results kya nikle. Dates ko ratne ke bajay cause → event → consequence ki chain banao. Answer mein prescribed textbook ka specific example do.";
+      if (/india:|physical features|drainage|climate|vegetation|wildlife|population|geography|resources and development|forest, water|agriculture|minerals|manufacturing|lifelines|transport|human geography|landforms|earth|oceans|rainwater|rainwater harvesting/.test(t)) return "Geography mein 4 sawal pucho: kya hai, kahan milta hai, kyun hota hai, aur log/environment par kya asar hota hai. Map question mein title, direction, legend aur labels check karo; example se point clear karo.";
+      if (/democracy|constitution|federalism|rights|judiciary|election|political|security|government|citizenship|secularism|power sharing|gender, religion|outcomes of democracy/.test(t)) return "Civics mein pehle concept ki simple definition, phir uska purpose, main features aur ek relevant example likho. Institutions ke roles mix mat karo; question mein 'explain', 'compare' ya 'why' jo poochha hai, uska seedha jawab do.";
+      if (/development|people as resource|poverty|money|credit|market|demand|production|income|budget|banking|trade|employment|consumer|sectors of the economy|economic/.test(t)) return "Economics ko real-life situation se jodo: problem kya hai, kis wajah se aayi, kin logon par asar hua, aur kya result ya solution ho sakta hai. Definition ke baad simple example likho, aur data use karo to uska source/date check karo.";
+      return "Social Science mein pehle identify karo ki question History, Geography, Civics ya Economics ka hai. History mein cause-event-result; Geography mein location-cause-impact; Civics mein definition-role-example; Economics mein problem-reason-effect samjho. Question ke command word ka seedha answer do.";
+    }
     if (/math|physics|chemistry|accountancy/.test(v)) {
       return "Formula/rule ko sirf ratto mat: symbols ka meaning samjho, solved example dekho, phir bina notes ke 3 similar questions solve karo. Har working step aur required unit likhne ki practice karo.";
     }
