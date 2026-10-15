@@ -29,6 +29,13 @@
 .note-source{border-top:1px solid var(--line);padding-top:13px;margin-top:18px!important}
 @media(max-width:760px){.notes-controls{grid-template-columns:1fr 1fr}.notes-controls label:last-child{grid-column:1/-1}}
 @media(max-width:480px){.notes-controls{grid-template-columns:1fr}.notes-controls label:last-child{grid-column:auto}.notes-actions button{width:100%}.chapter-note{padding:15px}}
+.simple-lesson{background:#f5f8ff;border:1px solid var(--line);border-radius:14px;padding:15px;margin:12px 0}
+.simple-lesson h4,.worked-example h4,.mistake-box h4{margin:0 0 8px}
+.simple-lesson p,.worked-example p,.mistake-box p{margin:7px 0;line-height:1.65}
+.simple-lesson details{margin-top:9px}
+.simple-lesson summary{cursor:pointer;color:var(--blue);font-weight:800}
+.worked-example{background:#fff;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:13px;padding:15px;margin-top:13px}
+.mistake-box{background:#fff6ef;border:1px solid #f2dfd2;border-radius:13px;padding:15px;margin-top:13px}
 @media print{
   body{background:#fff!important;color:#111!important}
   header,footer,.hero,#syllabus,#library,#practice,#tools,#chapterNotes>.heading,#chapterNotes>.small,.notes-controls,.notes-actions,#notesStatus{display:none!important}
