@@ -20,3 +20,12 @@ After Pages is live, submit the published URL in Google Search Console. Search i
 
 ## Content note
 StudySpace is an independent educational resource, not an official school website. The guides and questions are introductory original learning aids, not a complete syllabus, board-certified material or previous-year papers. Confirm the correct board and syllabus before expanding the content. External resource links are to NCERT, DIKSHA and SWAYAM.
+
+
+## Official UP Board syllabus links
+The site now links students to official UPMSP resources for:
+- Class-wise subject syllabus: https://upmsp.edu.in/Board_Syllabus.aspx
+- Monthly syllabus / academic calendar: https://upmsp.edu.in/Board_AcademicCalendar.aspx
+- Model papers, question banks, textbooks and other student resources: https://upmsp.edu.in/
+
+The school academics page found during research describes the school curriculum as State Board, so the site points to UPMSP rather than assuming CBSE. Use the current official board documents as the source of truth; subject options vary by class and stream.
