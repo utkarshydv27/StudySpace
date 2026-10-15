@@ -65,6 +65,14 @@
 #quizStatus{margin-top:12px}
 @media(max-width:760px){.quiz-selectors{grid-template-columns:1fr 1fr}.quiz-selectors label:last-child{grid-column:1/-1}}
 @media(max-width:480px){.quiz-selectors{grid-template-columns:1fr}.quiz-selectors label:last-child{grid-column:auto}#quiz{padding:13px}.quiz-option{padding:10px 11px}}
+
+.weightage-box{background:#f8faff;border:1px solid var(--line);border-radius:13px;padding:14px;margin-top:13px}
+.weightage-box strong{display:block;line-height:1.45}
+.weightage-box p{margin:7px 0 0}
+.weightage-neutral{background:#f7f8fb}
+.quiz-actions{display:flex;gap:9px;flex-wrap:wrap;margin:10px 0}
+.self-assessment{gap:9px;flex-wrap:wrap}
+.answer-text{font-size:1.02rem;font-weight:800}
 </style>
 </head>
 <body>
@@ -117,11 +125,12 @@
       <label for="quizSubject">Subject<select class="field" id="quizSubject" aria-label="Choose quiz subject"></select></label>
       <label for="quizTopic">Chapter / topic<select class="field" id="quizTopic" aria-label="Choose quiz chapter"><option value="all">All topics · mixed revision</option></select></label>
     </div>
-    <div class="quiz-instructions"><strong>How to use this quiz:</strong> choose the best answer, read the explanation even when correct, and note which key point you need to revise. A high score is useful practice, but it does not guarantee board exam questions.</div>
+    <div class="quiz-instructions"><strong>How to use this quiz:</strong> question ko dekhkar pehle apna answer yaad karo. Phir “Show answer + explanation” dabao, samjho ki answer sahi kyun hai, aur khud mark karo: “I knew it” ya “Need to revise”. Har chapter/topic ka question uske revision notes se linked hai.</div>
     <div class="panel" id="quiz">
       <div class="row"><span class="tag" id="qcount">QUESTION 1</span><span class="small" id="score">Score: 0</span></div>
       <p class="quizquestion" id="question"></p><div class="answers" id="answers"></div>
       <div class="feedback" id="feedback" aria-live="polite"></div>
+      <div class="quiz-actions"><button id="revealAnswer">Show answer + explanation</button><div id="selfAssessment" class="self-assessment" style="display:none"><button type="button" id="markKnow">I knew it ✓</button><button type="button" class="secondary" id="markRevise">Need to revise ↻</button></div></div>
       <button class="secondary" id="next" style="display:none">Next question →</button>
     </div>
     <p class="small" id="quizStatus" role="status" aria-live="polite"></p>
