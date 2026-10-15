@@ -31,6 +31,23 @@
       '<option value="' + escapeHtml(item.title) + '">' + (i+1) + '. ' + escapeHtml(item.title) + '</option>').join("") : "";
     renderNotes();
   }
+  function boardPlan(subject) {
+    const v = String(subject || "").toLowerCase();
+    if (/math|physics|chemistry|accountancy/.test(v)) {
+      return "Formula/rule ko sirf ratto mat: symbols ka meaning samjho, solved example dekho, phir bina notes ke 3 similar questions solve karo. Har working step aur required unit likhne ki practice karo.";
+    }
+    if (/science|biology/.test(v)) {
+      return "Definition aur process ke steps samjho; 'kaise' aur 'kyun' ka jawab apne words mein do. Prescribed chapter mein diagram hai to uska label aur function practise karo, aur similar terms ka difference revise karo.";
+    }
+    if (/history|geography|civics|political|economics|business/.test(v)) {
+      return "Key terms ki meaning seekho, phir cause-effect, difference ya example ko connected points mein likho. Geography mein syllabus ke map work ko bhi practise karo. 2–5 mark answer ki length apne question ke marks aur board instructions ke hisaab se rakho.";
+    }
+    if (/english|hindi|sanskrit|urdu|language/.test(v)) {
+      return "Question ko dhyan se padho, grammar aur required writing format revise karo. Literature/comprehension mein answer ko prescribed text ya passage ke evidence se support karo; question se unrelated memorised paragraph mat likho.";
+    }
+    return "Pehle definitions aur key concepts samjho, phir textbook ke worked examples/questions solve karo. Board question bank aur model paper mein diye gaye question formats par practice karo.";
+  }
+
   function renderNotes() {
     const c = course();
     const item = chapter();
@@ -45,10 +62,10 @@
     panel.innerHTML =
       '<div class="note-meta"><span>' + escapeHtml(unitLabel) + '</span><span>' + escapeHtml(active.className) + '</span><span>' + escapeHtml(active.subject) + '</span></div>' +
       '<h3 class="chapter-title">' + escapeHtml(item.title) + '</h3>' +
-      '<p class="chapter-explain">' + escapeHtml(item.explain) + '</p>' +
-      '<h4>Important points to remember</h4><ul class="chapter-points">' + points + '</ul>' +
+      '<h4>Simple explanation — pehle concept samjho</h4><p class="chapter-explain">' + escapeHtml(item.explain) + '</p>' +
+      '<h4>Pehle ye core points pakke karo</h4><ul class="chapter-points">' + points + '</ul>' +
       (item.formula ? '<div class="formula-box"><strong>Formula / key relation</strong><p>' + escapeHtml(item.formula) + '</p></div>' : '') +
-      '<div class="exam-box"><h4>Exam revision focus</h4><p>Be ready to define key terms, explain ideas in your own words, show working or draw a labelled diagram where relevant, and practise a textbook-style question. This is a revision guide, not a guarantee of exam questions.</p></div>' +
+      '<div class="exam-box"><h4>Board ke liye kya padhna hai?</h4><p>' + escapeHtml(boardPlan(active.subject)) + '</p><ol><li>Upar diye gaye core points bina dekhe explain karne ki koshish karo.</li><li>Prescribed textbook se isi topic ke solved example aur exercise questions karo.</li><li>Official UPMSP question bank/model paper mein isi subject ka question format check karo.</li></ol><p><strong>Important:</strong> ye revision priority hai, guaranteed exam prediction ya official marking scheme nahi.</p></div>' +
       '<div class="practice-box"><h4>Quick self-check</h4><p class="self-question">' + escapeHtml(item.question) + '</p>' +
       '<details><summary>Show answer and explanation</summary><p>' + escapeHtml(item.answer) + '</p></details></div>' +
       '<p class="small note-source">Syllabus source: <a href="' + escapeHtml(c.source) + '" target="_blank" rel="noopener noreferrer">Official UPMSP subject syllabus PDF ↗</a>. Compare the latest official PDF before final exam preparation.</p>';
