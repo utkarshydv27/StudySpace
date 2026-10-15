@@ -127,13 +127,18 @@
     const q = questions[qi];
     const points = q.key.slice(0,3).map(x => "<li>"+escapeHtml(x)+"</li>").join("");
     const unitInfo = officialUnitInfo(cls.value, sub.value, q);
+    const learning = window.STUDYSPACE_LEARNING || {};
+    const plainExplanation = typeof learning.simpleExplanation === "function" ? learning.simpleExplanation(sub.value, q) : q.explain;
+    const commonMistake = typeof learning.commonMistake === "function" ? learning.commonMistake(sub.value) : "Answer ko prescribed textbook se compare karo.";
     feedback.innerHTML =
       '<div class="quiz-feedback">' +
       '<h3>Answer</h3><p class="answer-text">' + escapeHtml(q.answer) + '</p>' +
-      '<h4>Simple explanation</h4><p>' + escapeHtml(q.explain) + '</p>' +
+      '<h4>Bilkul simple language mein</h4><p>' + escapeHtml(plainExplanation) + '</p>' +
+      '<details><summary>Further explanation from the study notes</summary><p>' + escapeHtml(q.explain) + '</p></details>' +
       '<h4>Board ke liye ye core points revise karo</h4><ul>' + points + '</ul>' +
       (q.formula ? '<p><b>Formula / key relation:</b> ' + escapeHtml(q.formula) + '</p>' : '') +
       (unitInfo ? '<p><b>Official Class 10 unit weightage:</b> ' + escapeHtml(unitInfo) + ' Ye poore unit ke marks hain, is ek question ki guarantee nahi.</p>' : '<p><b>Board importance:</b> is screen par is class/subject ka exact unit-wise marks breakdown verify nahi hai. Official syllabus/model paper check karo; guessed marks par depend mat karo.</p>') +
+      '<p><b>Common mistake se bacho:</b> ' + escapeHtml(commonMistake) + '</p>' +
       '<p><b>Ab kya practice karni hai:</b> ' + escapeHtml(boardGuidance(sub.value)) + '</p>' +
       '</div>';
     reveal.style.display = "none";
