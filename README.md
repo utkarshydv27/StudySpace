@@ -3,8 +3,8 @@
 A free, responsive student learning hub for Classes 9–12, with official UPMSP syllabus links, chapter/topic revision notes and per-topic PDF downloads. Open to all students; no account or student personal data is required.
 
 ## Features
-- Chapter/topic selector for Classes 9–12, with original explanations, key revision points, formulas where relevant and self-check questions.
-- Downloadable PDF revision sheet for the selected chapter/topic, including the explanation, core points, board-study checklist, self-check answer, and verified unit weightage where available.
+- Chapter/topic selector for Classes 9–12, with simple Hinglish explanations, extra detail on demand, key revision points, worked examples, common mistakes to avoid and formulas where relevant.
+- Downloadable PDF revision sheet for the selected chapter/topic, including simple explanations, a sample question and answer, core points, common mistakes, board-study checklist and verified unit weightage where available.
 - Class/subject/topic-wise recall quiz: think of the answer first, reveal a simple explanation, and mark whether the topic needs revision.
 - Class-wise notes for Mathematics, Science, Social Science, English, senior Physics/Chemistry/Biology, and selected Humanities/Commerce subjects.
 - Official UPMSP question-bank and model-paper links for additional board-style practice.
