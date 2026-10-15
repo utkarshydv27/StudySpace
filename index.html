@@ -7,10 +7,42 @@
 <meta name="robots" content="index,follow"><meta name="theme-color" content="#3157d5">
 <style>
 :root{--ink:#18233d;--muted:#65718a;--blue:#3157d5;--pale:#eef2ff;--line:#e3e8f2;--bg:#f7f9fd;--white:#fff;--green:#167a55}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:var(--blue)}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:11px 15px;background:var(--blue);color:#fff;font-weight:700}button.secondary{background:var(--pale);color:var(--blue)}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #8ca4ff;outline-offset:2px}.wrap{max-width:1120px;margin:auto;padding:0 22px}.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 0}.brand{font-weight:900;font-size:1.25rem;letter-spacing:-.04em}.brand span{color:var(--blue)}.nav a{text-decoration:none;font-weight:650;margin-left:16px}.hero{padding:54px 0 34px;background:linear-gradient(135deg,#eef2ff,#f9fbff 65%,#e4f8f0)}.eyebrow{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);font-weight:850}.hero h1{font-size:clamp(2.2rem,6vw,4.25rem);line-height:1.04;letter-spacing:-.055em;max-width:780px;margin:12px 0}.hero p{font-size:1.1rem;color:var(--muted);max-width:650px}.heroactions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.pill{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.85rem;color:var(--muted);margin:4px 5px 0 0}.section{padding:34px 0}.heading{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px}.heading h2{font-size:1.7rem;letter-spacing:-.035em;margin:0}.heading p{margin:4px 0 0;color:var(--muted)}.tools{display:grid;grid-template-columns:1fr 180px 180px;gap:10px;margin:18px 0}.field{width:100%;border:1px solid var(--line);border-radius:12px;background:white;padding:12px 13px;color:var(--ink)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:19px;box-shadow:0 4px 18px #1a2a5010}.card h3{margin:9px 0 7px;font-size:1.08rem}.card p{color:var(--muted);margin:0 0 12px}.icon{display:grid;place-items:center;width:42px;height:42px;background:var(--pale);border-radius:13px;font-size:1.25rem}.tag{font-size:.76rem;color:var(--blue);font-weight:800}.card .open{margin-top:10px}.panel{background:white;border:1px solid var(--line);border-radius:20px;padding:22px}.split{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}.row{display:flex;align-items:center;gap:10px}.row>*:last-child{margin-left:auto}.checklist label{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}.checklist input{margin-top:5px;accent-color:var(--blue)}.timer{text-align:center;padding:12px}.time{font-size:3rem;letter-spacing:-.05em;font-weight:850;font-variant-numeric:tabular-nums}.timerbuttons{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.quizquestion{font-weight:800;font-size:1.08rem}.answers{display:grid;gap:8px;margin:14px 0}.answers button{text-align:left;background:#f2f5fb;color:var(--ink);border:1px solid var(--line)}.answers button:hover{border-color:#9aaeff}.feedback{min-height:28px;font-weight:700}.resources{display:flex;gap:10px;flex-wrap:wrap}.resources a{background:white;border:1px solid var(--line);border-radius:12px;padding:12px;text-decoration:none;font-weight:750}.note{width:100%;min-height:115px;resize:vertical;border:1px solid var(--line);border-radius:12px;padding:12px}.small{font-size:.88rem;color:var(--muted)}footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted)}.empty{grid-column:1/-1;padding:30px;text-align:center;color:var(--muted)}@media(max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.tools{grid-template-columns:1fr 1fr}.tools input{grid-column:1/-1}.split{grid-template-columns:1fr}.heading{align-items:start;flex-direction:column}.nav nav a{margin-left:8px}.hero{padding-top:36px}}@media(max-width:480px){.grid{grid-template-columns:1fr}.nav{align-items:flex-start}.nav nav{display:flex;flex-wrap:wrap;justify-content:flex-end}.nav nav a{font-size:.85rem}.wrap{padding:0 15px}.tools{grid-template-columns:1fr}.tools input{grid-column:auto}}
+
+.notes-controls{display:grid;grid-template-columns:180px minmax(180px,1fr) minmax(220px,1.5fr);gap:12px;margin:14px 0 18px}
+.notes-controls label{display:grid;gap:6px;font-weight:750;font-size:.9rem}
+.notes-actions{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0}
+#notesStatus{margin:10px 0 15px}
+.chapter-note{background:#fbfcff;border:1px solid var(--line);border-radius:16px;padding:22px;margin-top:12px}
+.chapter-note h3{font-size:1.55rem;line-height:1.2;margin:8px 0 10px;letter-spacing:-.025em}
+.chapter-note h4{margin:18px 0 7px}
+.chapter-note p{margin:7px 0}
+.note-meta{display:flex;gap:7px;flex-wrap:wrap}
+.note-meta span{font-size:.78rem;font-weight:750;background:var(--pale);color:var(--blue);border-radius:99px;padding:4px 9px}
+.chapter-explain{font-size:1.02rem;max-width:850px}
+.chapter-points{padding-left:22px;margin:8px 0}
+.chapter-points li{padding:4px 0}
+.formula-box,.exam-box,.practice-box{background:#fff;border:1px solid var(--line);border-radius:13px;padding:14px;margin-top:13px}
+.formula-box p{font-weight:800;font-size:1.06rem}
+.self-question{font-weight:800}
+.chapter-note details{margin-top:9px}
+.chapter-note summary{cursor:pointer;color:var(--blue);font-weight:800}
+.note-source{border-top:1px solid var(--line);padding-top:13px;margin-top:18px!important}
+@media(max-width:760px){.notes-controls{grid-template-columns:1fr 1fr}.notes-controls label:last-child{grid-column:1/-1}}
+@media(max-width:480px){.notes-controls{grid-template-columns:1fr}.notes-controls label:last-child{grid-column:auto}.notes-actions button{width:100%}.chapter-note{padding:15px}}
+@media print{
+  body{background:#fff!important;color:#111!important}
+  header,footer,.hero,#syllabus,#library,#practice,#tools,#chapterNotes>.heading,#chapterNotes>.small,.notes-controls,.notes-actions,#notesStatus{display:none!important}
+  body>main>section:not(#chapterNotes){display:none!important}
+  #chapterNotes{display:block!important;padding:0!important}
+  #chapterNotes .panel{border:0!important;padding:0!important}
+  #chapterNotePanel{display:block!important;border:0!important;background:#fff!important;padding:0!important}
+  #chapterNotePanel a:after{content:" (" attr(href) ")";font-size:8pt}
+  .formula-box,.exam-box,.practice-box{break-inside:avoid}
+}
 </style>
 </head>
 <body>
-<header class="wrap nav"><a class="brand" href="#" style="text-decoration:none;color:inherit">Study<span>Space</span> ✦</a><nav aria-label="Main navigation"><a href="#syllabus">UP Board syllabus</a><a href="#library">Study library</a><a href="#practice">Practice</a><a href="#tools">Study tools</a></nav></header>
+<header class="wrap nav"><a class="brand" href="#" style="text-decoration:none;color:inherit">Study<span>Space</span> ✦</a><nav aria-label="Main navigation"><a href="#syllabus">UP Board syllabus</a><a href="#chapterNotes">Chapter PDFs</a><a href="#library">Study library</a><a href="#practice">Practice</a><a href="#tools">Study tools</a></nav></header>
 <main>
 <section class="hero"><div class="wrap"><div class="eyebrow">A little progress every day</div><h1>Make studying feel <span style="color:var(--blue)">simpler.</span></h1><p>Free study guides, quick practice and focus tools for Classes 9–12. Learn at your own pace, revise smarter and keep moving forward.</p><div class="heroactions"><a href="#library"><button>Explore study library →</button></a><a href="#practice"><button class="secondary">Try a quick quiz</button></a></div><div style="margin-top:18px"><span class="pill">✓ Free to use</span><span class="pill">✓ No login required</span><span class="pill">✓ Open to every student</span></div></div></section>
 
@@ -26,6 +58,26 @@
 <article class="card"><div class="icon">🔎</div><h3>Find your subject</h3><p>UPMSP lists subjects separately by class, including languages, Mathematics, Science, Social Science and senior-secondary electives.</p><a href="https://upmsp.edu.in/Board_Syllabus.aspx" target="_blank" rel="noopener noreferrer">Browse class-wise subject list ↗</a></article>
 <article class="card"><div class="icon">⚠️</div><h3>Before you study</h3><p>Class 11–12 subjects depend on your selected stream and registered subject combination. Confirm the current syllabus and any deleted or revised topics on UPMSP before exams.</p></article>
 </div><p class="small" style="margin-top:14px">Official board links are provided as the source of truth. This independent StudySpace website is not affiliated with UPMSP or the school. If the official board updates a PDF, use the latest version linked on its website.</p></section>
+
+
+<section class="section wrap" id="chapterNotes">
+  <div class="heading"><div><div class="eyebrow">Chapter-by-chapter revision · 2026–27</div><h2>Understand the chapter. Download its notes.</h2><p>Choose your class, subject and chapter/topic. Each note explains the idea, highlights revision points and gives a self-check question.</p></div></div>
+  <div class="panel">
+    <div class="notes-controls">
+      <label for="notesClass">Your class<select class="field" id="notesClass"><option>Class 9</option><option selected>Class 10</option><option>Class 11</option><option>Class 12</option></select></label>
+      <label for="notesSubject">Subject<select class="field" id="notesSubject" aria-label="Choose subject"></select></label>
+      <label for="notesChapter">Chapter / syllabus topic<select class="field" id="notesChapter" aria-label="Choose chapter"></select></label>
+    </div>
+    <div class="notes-actions">
+      <button id="downloadChapterPdf">⬇ Download this chapter's PDF</button>
+      <button class="secondary" id="openOfficialSyllabus">Official syllabus PDF ↗</button>
+      <button class="secondary" id="printChapterNotes">Print / Save as PDF</button>
+    </div>
+    <p class="small" id="notesStatus" role="status" aria-live="polite">Choose a chapter to begin.</p>
+    <article class="chapter-note" id="chapterNotePanel" aria-live="polite"><p>Select a class, subject and chapter to view revision notes.</p></article>
+  </div>
+  <p class="small" style="margin-top:14px">Notes are original study aids written for revision; they are not a replacement for the prescribed textbook or official UPMSP syllabus. Some official syllabi are structured as units/topics rather than textbook chapter titles, so these are labelled accordingly. Students in Classes 11–12 should check their registered stream and subjects.</p>
+</section>
 
 <section class="section wrap" id="library"><div class="heading"><div><h2>Find what you need</h2><p>Search a topic or filter by class and subject.</p></div></div>
 <div class="tools"><input class="field" id="search" placeholder="Search topics, e.g. equations, motion…" aria-label="Search study guides"><select class="field" id="classFilter" aria-label="Filter by class"><option value="all">All classes</option><option>Class 9</option><option>Class 10</option><option>Class 11</option><option>Class 12</option></select><select class="field" id="subjectFilter" aria-label="Filter by subject"><option value="all">All subjects</option><option>Mathematics</option><option>Science</option><option>Physics</option><option>Chemistry</option><option>Biology</option><option>English</option><option>Social Science</option><option>Study Skills</option></select></div>
@@ -85,4 +137,4 @@ const qs=[
 ];let qi=0,score=0,answered=false;function showQ(){$("qcount").textContent="QUESTION "+(qi+1)+" / "+qs.length;$("score").textContent="Score: "+score;$("question").textContent=qs[qi].q;$("answers").innerHTML=qs[qi].a.map((a,i)=>'<button data-answer="'+i+'">'+String.fromCharCode(65+i)+'. '+a+'</button>').join("");$("feedback").textContent="";$("next").style.display="none";answered=false;document.querySelectorAll("[data-answer]").forEach(b=>b.addEventListener("click",()=>{if(answered)return;answered=true;const n=Number(b.dataset.answer),right=n===qs[qi].c;if(right)score++;$("score").textContent="Score: "+score;$("feedback").textContent=(right?"Correct! ":"Not quite. ")+qs[qi].e;$("feedback").style.color=right?"var(--green)":"#b34c2e";$("next").style.display="inline-block";$("next").textContent=qi===qs.length-1?"Restart quiz ↻":"Next question →";}));}showQ();$("next").addEventListener("click",()=>{if(qi===qs.length-1){qi=0;score=0}else qi++;showQ()});
 $("checks").addEventListener("change",()=>{const all=[...$("checks").querySelectorAll("input")];$("progress").textContent=all.filter(x=>x.checked).length+" / "+all.length+" done";});$("resetChecks").addEventListener("click",()=>{$("checks").querySelectorAll("input").forEach(x=>x.checked=false);$("progress").textContent="0 / 4 done";});
 let total=1500,remain=1500,handle=null;function showTime(){$("time").textContent=String(Math.floor(remain/60)).padStart(2,"0")+":"+String(remain%60).padStart(2,"0")}document.querySelectorAll(".duration").forEach(b=>b.addEventListener("click",()=>{clearInterval(handle);handle=null;total=Number(b.dataset.min)*60;remain=total;showTime();$("startTimer").textContent="Start";$("timerStatus").textContent="Ready for a "+b.dataset.min+" minute session."}));$("startTimer").addEventListener("click",()=>{if(handle){clearInterval(handle);handle=null;$("startTimer").textContent="Resume";return}if(remain<=0)remain=total;handle=setInterval(()=>{remain--;showTime();if(remain<=0){clearInterval(handle);handle=null;$("timerStatus").textContent="Session complete — take a short break!";$("startTimer").textContent="Start again"}},1000);$("startTimer").textContent="Pause";$("timerStatus").textContent="Focus on one task."});$("resetTimer").addEventListener("click",()=>{clearInterval(handle);handle=null;remain=total;showTime();$("startTimer").textContent="Start";$("timerStatus").textContent="Timer reset."});$("saveNote").addEventListener("click",()=>{$("noteStatus").textContent="Note ready to copy or save manually. It has not been sent anywhere."});$("year").textContent=new Date().getFullYear();
-</script></body></html>
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script><script src="syllabus-data.js"></script><script src="syllabus-app.js"></script></body></html>
