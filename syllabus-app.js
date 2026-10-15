@@ -145,6 +145,19 @@
       addText("Formula / key relation", 12, 2, "bold");
       addText(active.item.formula, 11, 4);
     }
+    addText("Board ke liye kya padhna hai?", 12, 2, "bold");
+    addText(boardPlan(active.subject), 10, 3);
+    const pdfWeightage = officialUnitInfo(active.className, active.subject, active.item);
+    if (pdfWeightage) {
+      addText("Official board unit weightage", 12, 2, "bold");
+      addText(pdfWeightage.label, 10, 1, "bold");
+      addText(pdfWeightage.note, 10, 3);
+    } else {
+      addText("Weightage note", 10, 2, "bold");
+      addText("Exact unit-wise weightage is not stated in this revision sheet. Check the official syllabus PDF; do not treat these notes as exam predictions.", 9, 3);
+    }
+    addText("Board revision checklist", 12, 2, "bold");
+    addText("1. Explain the key points without looking. 2. Solve textbook questions. 3. Practise the current official question bank/model-paper format.", 10, 3);
     addText("Quick self-check", 12, 2, "bold");
     addText(active.item.question, 11, 2, "bold");
     addText("Answer: " + active.item.answer, 11, 4);
