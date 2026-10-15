@@ -4,7 +4,8 @@ A free, responsive student learning hub for Classes 9–12, with official UPMSP 
 
 ## Features
 - Chapter/topic selector for Classes 9–12, with original explanations, key revision points, formulas where relevant and self-check questions.
-- Downloadable PDF revision sheet for the selected chapter/topic, with print-to-PDF fallback.
+- Downloadable PDF revision sheet for the selected chapter/topic, including the explanation, core points, board-study checklist, self-check answer, and verified unit weightage where available.
+- Class/subject/topic-wise recall quiz: think of the answer first, reveal a simple explanation, and mark whether the topic needs revision.
 - Class-wise notes for Mathematics, Science, Social Science, English, senior Physics/Chemistry/Biology, and selected Humanities/Commerce subjects.
 - 20 sample MCQs with immediate feedback and explanations.
 - Focus timer, study checklist and a local doubt-writing tool.
@@ -19,6 +20,12 @@ A free, responsive student learning hub for Classes 9–12, with official UPMSP 
 
 ## Google Search
 After Pages is live, submit the published URL in Google Search Console. Search indexing is not instant or guaranteed. Basic title, description and robots metadata are included. The sitemap is available at https://utkarshydv27.github.io/StudySpace/sitemap.xml; submit it in Search Console after verifying site ownership.
+
+## Board preparation approach
+- Quiz questions are drawn from the matching StudySpace revision topics; they are original self-check prompts, not copied official questions.
+- The site's “board focus” guidance explains what to learn and practise, but does not claim to predict the board paper.
+- Where verified from the official UPMSP 2026–27 subject PDFs, Class 10 unit-level written-paper weightage is shown for Mathematics, Science and Social Science. Unit marks are not guaranteed marks from an individual chapter.
+- Official UPMSP question-bank and model-paper pages are linked alongside the quiz for authentic objective and descriptive question practice.
 
 ## Content note
 StudySpace is an independent educational resource, not an official school website or a UPMSP product. The notes are original revision aids—not official board-issued notes, a guarantee of exam questions, or a replacement for prescribed textbooks. Official UPMSP PDFs are linked for checking syllabus coverage. Coverage of individual notes is not yet exhaustive for every vocational/elective subject; students should confirm their registered subject combination and the latest official syllabus. External learning links include NCERT, DIKSHA and SWAYAM.
