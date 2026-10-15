@@ -55,6 +55,34 @@
     }
     return "Board practice: answer exactly what the question asks, support comprehension or literature answers with evidence from the prescribed text, and practise the current board format.";
   }
+  function officialUnitInfo(className, subject, item) {
+    if (className !== "Class 10") return null;
+    const title = item.title.toLowerCase();
+    if (subject === "Mathematics") {
+      if (/real numbers|number system/.test(title)) return "Number System — 5 marks out of the 70-mark written paper.";
+      if (/polynomial|linear equations|quadratic equations|arithmetic progression/.test(title)) return "Algebra — 18 marks out of 70 (unit weightage; not a one-chapter prediction).";
+      if (/coordinate geometry/.test(title)) return "Coordinate Geometry — 5 marks out of 70.";
+      if (/triangle|circle|tangent/.test(title)) return "Geometry — 10 marks out of 70.";
+      if (/trigonometric|applications of trigonometry/.test(title)) return "Trigonometry — 12 marks out of 70.";
+      if (/areas related to circles|surface area and volume/.test(title)) return "Mensuration — 10 marks out of 70.";
+      if (/statistics|probability/.test(title)) return "Statistics and Probability — 10 marks out of 70.";
+    }
+    if (subject === "Science") {
+      if (/chemical reactions|acids, bases|metals and non-metals|carbon and its compounds/.test(title)) return "Chemical substances — nature and behaviour: 20 marks out of 70.";
+      if (/life processes|control and coordination|reproduction|heredity/.test(title)) return "Biological world — 20 marks out of 70.";
+      if (/light: reflection|light/.test(title)) return "Natural phenomena — 12 marks out of 70.";
+      if (/electricity$|magnetic effects/.test(title)) return "Effects of electricity — 13 marks out of 70.";
+      if (/our environment/.test(title)) return "Natural resources — 5 marks out of 70.";
+    }
+    if (subject === "Social Science") {
+      if (/nationalism|global world|industrialisation|print culture/.test(title)) return "History unit — 20 marks out of 70.";
+      if (/resources and development|forest, water|manufacturing and lifelines/.test(title)) return "Geography unit — 20 marks out of 70.";
+      if (/power sharing|federalism|gender, religion|outcomes of democracy/.test(title)) return "Democratic Politics unit — 15 marks out of 70.";
+      if (/development|sectors of the economy|money, credit|consumer rights/.test(title)) return "Understanding Economic Development unit — 15 marks out of 70.";
+    }
+    return null;
+  }
+
   function buildOptions(item, allItems, index) {
     const correct = trimAnswer(item.answer);
     const candidates = [];
@@ -128,13 +156,15 @@
       if(n===choice && !right) button.classList.add("answer-wrong");
     });
     const pointList = q.key.slice(0,3).map(x => "<li>"+escapeHtml(x)+"</li>").join("");
+    const unitInfo = officialUnitInfo(cls.value, sub.value, q);
     feedback.innerHTML =
       '<div class="quiz-feedback ' + (right?"is-correct":"needs-review") + '">' +
       '<strong>' + (right ? "Correct — good work!" : "Not quite — revise this concept.") + '</strong>' +
       '<p><b>Correct answer:</b> ' + escapeHtml(q.answer) + '</p>' +
       '<p><b>Understand it:</b> ' + escapeHtml(q.explain) + '</p>' +
       '<h4>Board revision checklist for this topic</h4><ul>' + pointList + '</ul>' +
-      '<p><b>What to practise:</b> ' + escapeHtml(boardGuidance(sub.value,q)) + '</p>' +
+      (unitInfo ? '<p><b>Official Class 10 unit weightage:</b> ' + escapeHtml(unitInfo) + ' This is unit-level weightage, not guaranteed marks from this question.</p>' : '<p><b>Board priority:</b> exact unit-wise weightage is not shown here. Check the current official syllabus and model paper instead of relying on exam predictions.</p>') +
+      '<p><b>What to practise next:</b> ' + escapeHtml(boardGuidance(sub.value,q)) + '</p>' +
       '</div>';
     next.style.display = "inline-block";
   }
