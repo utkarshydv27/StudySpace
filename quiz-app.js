@@ -10,27 +10,26 @@
   const scoreBox = $("score");
   const next = $("next");
   const status = $("quizStatus");
-  const panel = $("quiz");
+  const reveal = $("revealAnswer");
+  const assess = $("selfAssessment");
+  const know = $("markKnow");
+  const revise = $("markRevise");
   let questions = [];
   let qi = 0;
-  let score = 0;
-  let answered = false;
-  let selected = -1;
+  let confident = 0;
+  let needsRevision = 0;
+  let missed = [];
+  let revealed = false;
+  let marked = false;
 
   const data = () => window.STUDYSPACE_SYLLABUS || {};
   const escapeHtml = (v) => String(v ?? "").replace(/[&<>"']/g, c => ({
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
   }[c]));
-  const trimAnswer = (text) => {
-    let v = String(text || "").trim();
-    const dot = v.indexOf(". ");
-    if (dot > 25 && dot < 130) v = v.slice(0, dot + 1);
-    if (v.length > 112) v = v.slice(0, 109).replace(/\s+\S*$/, "") + "…";
-    return v;
-  };
   const currentSubjects = () => data()[cls.value] || {};
   const currentCourse = () => currentSubjects()[sub.value];
   const currentChapters = () => (currentCourse() && currentCourse().chapters) || [];
+
   function updateSubjects() {
     const subjects = Object.keys(currentSubjects());
     sub.innerHTML = subjects.map(x => '<option value="' + escapeHtml(x) + '">' + escapeHtml(x) + '</option>').join("");
@@ -42,18 +41,18 @@
       chapters.map((x,i) => '<option value="' + escapeHtml(x.title) + '">' + (i+1) + '. ' + escapeHtml(x.title) + '</option>').join("");
     startQuiz();
   }
-  function boardGuidance(subject, item) {
-    const s = subject.toLowerCase();
+  function boardGuidance(subject) {
+    const s = String(subject || "").toLowerCase();
     if (/math|physics|chemistry|accountancy/.test(s)) {
-      return "Board practice: learn the formula or rule, write each working step clearly, show the final unit where needed, and solve a similar question without looking at the notes.";
+      return "Formula/rule ka meaning samjho, symbols aur units pehchano, solved example dekho, phir bina notes ke 3 similar questions step-by-step solve karo.";
     }
     if (/science|biology/.test(s)) {
-      return "Board practice: learn the definition and process in the correct order; prepare a labelled diagram only when it belongs to your prescribed chapter; practise a 'how/why' explanation.";
+      return "Definition aur process ko sequence mein samjho; 'kaise' aur 'kyun' ka jawab apne words mein do. Prescribed course mein ho to labelled diagram aur key-term differences practise karo.";
     }
     if (/history|geography|civics|political|economics|business/.test(s)) {
-      return "Board practice: learn key terms, then write a direct answer with linked points and an accurate example, cause/effect or map detail when relevant to the question.";
+      return "Key terms ki meaning seekho, phir cause-effect, difference ya example ko connected points mein likho. Geography mein prescribed map work practise karo; answer ki length question ke marks aur board instructions ke hisaab se rakho.";
     }
-    return "Board practice: answer exactly what the question asks, support comprehension or literature answers with evidence from the prescribed text, and practise the current board format.";
+    return "Question ko dhyan se padho, required writing format aur grammar revise karo, aur comprehension/literature mein passage ya prescribed text ke evidence se answer support karo.";
   }
   function officialUnitInfo(className, subject, item) {
     if (className !== "Class 10") return null;
@@ -82,40 +81,17 @@
     }
     return null;
   }
-
-  function buildOptions(item, allItems, index) {
-    const correct = trimAnswer(item.answer);
-    const candidates = [];
-    for (let offset=1; offset<allItems.length && candidates.length<3; offset++) {
-      const candidate = trimAnswer(allItems[(index + offset) % allItems.length].answer);
-      if (candidate && candidate.toLowerCase() !== correct.toLowerCase() &&
-          !candidates.some(x => x.toLowerCase() === candidate.toLowerCase())) candidates.push(candidate);
-    }
-    const safeFallbacks = ["Review the definition in your prescribed textbook.", "This statement does not match the topic's key idea.", "Recheck the example and the rule from the chapter."];
-    safeFallbacks.forEach(v => { if(candidates.length<3 && !candidates.includes(v)) candidates.push(v); });
-    const choices = [correct, ...candidates.slice(0,3)];
-    // Deterministic rotation avoids the correct option always appearing first.
-    const shift = index % choices.length;
-    const rotated = choices.slice(shift).concat(choices.slice(0,shift));
-    return { choices: rotated, correctIndex: rotated.findIndex(x => x.toLowerCase() === correct.toLowerCase()) };
-  }
   function startQuiz() {
     const all = currentChapters();
-    const chosen = topic.value === "all" ? all : all.filter(x => x.title === topic.value);
-    if (!chosen.length) {
-      questions = [];
-      renderEmpty("No topics are available for this selection yet.");
+    questions = topic.value === "all" ? [...all] : all.filter(x => x.title === topic.value);
+    if (!questions.length) {
+      renderEmpty("Is selection ke liye abhi questions available nahi hain.");
       return;
     }
-    questions = chosen.map(item => {
-      const originalIndex = all.indexOf(item);
-      const opts = buildOptions(item, all, originalIndex);
-      return { ...item, options: opts.choices, correctIndex: opts.correctIndex };
-    });
-    qi = 0; score = 0; answered = false; selected = -1;
-    status.textContent = questions.length + " question" + (questions.length===1?"":"s") +
-      " for " + cls.value + " · " + sub.value + ". These are original StudySpace practice questions based on the selected notes, not official board questions.";
-    scoreBox.textContent = "Score: 0 / " + questions.length;
+    qi = 0; confident = 0; needsRevision = 0; missed = [];
+    status.textContent = questions.length + " recall question" + (questions.length===1?"":"s") +
+      " · " + cls.value + " · " + sub.value + ". Answer pehle yaad karo, phir reveal karke explanation padho.";
+    scoreBox.textContent = "Confident: 0 · Needs revision: 0";
     showQuestion();
   }
   function renderEmpty(msg) {
@@ -123,73 +99,83 @@
     answersBox.innerHTML = "";
     feedback.innerHTML = "";
     count.textContent = "NO QUESTIONS";
+    reveal.style.display = "none";
+    assess.style.display = "none";
     next.style.display = "none";
   }
   function showQuestion() {
     if (!questions.length) return;
     if (qi >= questions.length) { showResults(); return; }
     const q = questions[qi];
-    answered = false; selected = -1;
+    revealed = false; marked = false;
     count.textContent = "QUESTION " + (qi+1) + " / " + questions.length;
-    scoreBox.textContent = "Score: " + score + " / " + questions.length;
+    scoreBox.textContent = "Confident: " + confident + " · Needs revision: " + needsRevision;
     questionBox.textContent = q.question;
-    answersBox.innerHTML = q.options.map((ans,i) =>
-      '<button class="quiz-option" type="button" data-quiz-answer="' + i + '">' +
-      '<span class="option-letter">' + String.fromCharCode(65+i) + '</span><span>' + escapeHtml(ans) + '</span></button>'
-    ).join("");
+    answersBox.innerHTML = '<p class="small">Options dekhne se pehle apna answer khud socho ya rough notebook mein likho.</p>';
     feedback.innerHTML = "";
+    reveal.style.display = "inline-block";
+    assess.style.display = "none";
+    know.style.display = "inline-block";
+    revise.style.display = "inline-block";
     next.style.display = "none";
-    next.textContent = qi === questions.length-1 ? "See result →" : "Next question →";
-    answersBox.querySelectorAll("[data-quiz-answer]").forEach(button => button.addEventListener("click", () => answerQuestion(Number(button.dataset.quizAnswer))));
+    next.textContent = qi === questions.length-1 ? "See revision summary →" : "Next question →";
+    delete next.dataset.restart;
   }
-  function answerQuestion(choice) {
-    if (answered || !questions[qi]) return;
-    answered = true; selected = choice;
+  function showAnswer() {
+    if (revealed || !questions[qi]) return;
+    revealed = true;
     const q = questions[qi];
-    const right = choice === q.correctIndex;
-    if (right) score++;
-    scoreBox.textContent = "Score: " + score + " / " + questions.length;
-    answersBox.querySelectorAll("[data-quiz-answer]").forEach(button => {
-      const n=Number(button.dataset.quizAnswer);
-      button.disabled=true;
-      if(n===q.correctIndex) button.classList.add("answer-correct");
-      if(n===choice && !right) button.classList.add("answer-wrong");
-    });
-    const pointList = q.key.slice(0,3).map(x => "<li>"+escapeHtml(x)+"</li>").join("");
+    const points = q.key.slice(0,3).map(x => "<li>"+escapeHtml(x)+"</li>").join("");
     const unitInfo = officialUnitInfo(cls.value, sub.value, q);
     feedback.innerHTML =
-      '<div class="quiz-feedback ' + (right?"is-correct":"needs-review") + '">' +
-      '<strong>' + (right ? "Correct — good work!" : "Not quite — revise this concept.") + '</strong>' +
-      '<p><b>Correct answer:</b> ' + escapeHtml(q.answer) + '</p>' +
-      '<p><b>Understand it:</b> ' + escapeHtml(q.explain) + '</p>' +
-      '<h4>Board revision checklist for this topic</h4><ul>' + pointList + '</ul>' +
-      (unitInfo ? '<p><b>Official Class 10 unit weightage:</b> ' + escapeHtml(unitInfo) + ' This is unit-level weightage, not guaranteed marks from this question.</p>' : '<p><b>Board priority:</b> exact unit-wise weightage is not shown here. Check the current official syllabus and model paper instead of relying on exam predictions.</p>') +
-      '<p><b>What to practise next:</b> ' + escapeHtml(boardGuidance(sub.value,q)) + '</p>' +
+      '<div class="quiz-feedback">' +
+      '<h3>Answer</h3><p class="answer-text">' + escapeHtml(q.answer) + '</p>' +
+      '<h4>Simple explanation</h4><p>' + escapeHtml(q.explain) + '</p>' +
+      '<h4>Board ke liye ye core points revise karo</h4><ul>' + points + '</ul>' +
+      (q.formula ? '<p><b>Formula / key relation:</b> ' + escapeHtml(q.formula) + '</p>' : '') +
+      (unitInfo ? '<p><b>Official Class 10 unit weightage:</b> ' + escapeHtml(unitInfo) + ' Ye poore unit ke marks hain, is ek question ki guarantee nahi.</p>' : '<p><b>Board importance:</b> is screen par is class/subject ka exact unit-wise marks breakdown verify nahi hai. Official syllabus/model paper check karo; guessed marks par depend mat karo.</p>') +
+      '<p><b>Ab kya practice karni hai:</b> ' + escapeHtml(boardGuidance(sub.value)) + '</p>' +
       '</div>';
+    reveal.style.display = "none";
+    assess.style.display = "flex";
+  }
+  function markResult(knewIt) {
+    if (!revealed || marked || !questions[qi]) return;
+    marked = true;
+    if (knewIt) confident++;
+    else { needsRevision++; missed.push(questions[qi].title); }
+    scoreBox.textContent = "Confident: " + confident + " · Needs revision: " + needsRevision;
+    assess.style.display = "none";
     next.style.display = "inline-block";
   }
   function showResults() {
-    count.textContent = "QUIZ COMPLETE";
-    questionBox.textContent = "Revision complete for " + cls.value + " · " + sub.value + ".";
-    answersBox.innerHTML = '<div class="quiz-result"><strong>' + score + ' / ' + questions.length + ' correct</strong><p>' +
-      (score === questions.length ? "Excellent. Now practise writing the answers without options." :
-       score >= Math.ceil(questions.length*0.7) ? "Good progress. Revisit the questions you missed and explain each answer in your own words." :
-       "Use the feedback to revise the key concepts, then repeat the quiz before moving on.") +
-      '</p><p>Board reminder: practise from the prescribed textbook and check the official UPMSP question bank and model paper. This quiz does not predict the exam paper.</p></div>';
+    count.textContent = "REVISION SUMMARY";
+    questionBox.textContent = cls.value + " · " + sub.value + " complete.";
+    const list = missed.length ? '<p><b>Dobara revise karo:</b> ' + escapeHtml([...new Set(missed)].join(", ")) + '</p>' : '<p>Is round mein koi topic revision ke liye mark nahi hua. Ab answers ko bina options ke likhkar practise karo.</p>';
+    answersBox.innerHTML =
+      '<div class="quiz-result"><strong>' + confident + ' topic(s) confident · ' + needsRevision + ' topic(s) need revision</strong>' +
+      '<p>“I knew it” ka matlab sirf self-check confidence hai; board marks ka prediction nahi.</p>' + list +
+      '<p>Next step: prescribed textbook ke questions karo, phir current UPMSP question bank aur model paper se exam format practise karo.</p>' +
+      '<div class="resources"><a href="https://upmsp.edu.in/Board_QuestionBank.aspx" target="_blank" rel="noopener noreferrer">Official question bank ↗</a><a href="https://upmsp.edu.in/Board_ModelPaper.aspx" target="_blank" rel="noopener noreferrer">Official model paper ↗</a><a href="' + escapeHtml((currentCourse()||{}).source || "https://upmsp.edu.in/Board_Syllabus.aspx") + '" target="_blank" rel="noopener noreferrer">Official syllabus PDF ↗</a></div></div>';
     feedback.innerHTML = "";
-    next.textContent = "Try again ↻";
+    reveal.style.display = "none";
+    assess.style.display = "none";
+    next.textContent = "Try this quiz again ↻";
     next.style.display = "inline-block";
     next.dataset.restart = "true";
-    scoreBox.textContent = "Final score: " + score + " / " + questions.length;
+    scoreBox.textContent = "Finished: " + questions.length + " questions";
   }
   cls.addEventListener("change", updateSubjects);
   sub.addEventListener("change", updateTopics);
   topic.addEventListener("change", startQuiz);
+  reveal.addEventListener("click", showAnswer);
+  know.addEventListener("click", () => markResult(true));
+  revise.addEventListener("click", () => markResult(false));
   next.addEventListener("click", () => {
-    if (next.dataset.restart === "true") {
-      delete next.dataset.restart; startQuiz(); return;
-    }
-    qi++; showQuestion();
+    if (next.dataset.restart === "true") { startQuiz(); return; }
+    if (!marked) return;
+    qi++;
+    showQuestion();
   });
   updateSubjects();
 })();
