@@ -8,7 +8,6 @@ A free, responsive student learning hub for Classes 9–12, with official UPMSP 
 - Class/subject/topic-wise recall quiz: think of the answer first, reveal a simple explanation, and mark whether the topic needs revision.
 - Class-wise notes for Mathematics, Science, Social Science, English, senior Physics/Chemistry/Biology, and selected Humanities/Commerce subjects.
 - Official UPMSP question-bank and model-paper links for additional board-style practice.
-- Focus timer, study checklist and a local doubt-writing tool.
 - Links to NCERT textbooks, DIKSHA and SWAYAM.
 - Responsive layout and basic accessibility labels.
 
