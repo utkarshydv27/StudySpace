@@ -125,9 +125,10 @@
     if (revealed || !questions[qi]) return;
     revealed = true;
     const q = questions[qi];
-    const points = q.key.slice(0,3).map(x => "<li>"+escapeHtml(x)+"</li>").join("");
-    const unitInfo = officialUnitInfo(cls.value, sub.value, q);
     const learning = window.STUDYSPACE_LEARNING || {};
+    const pointExplanation = typeof learning.corePointExplanation === "function" ? learning.corePointExplanation : (() => "Is point ko apne words mein explain karo aur chapter ke worked example se connect karo.");
+    const points = q.key.map(x => "<li class=\"core-point\"><strong>"+escapeHtml(x)+"</strong><p>"+escapeHtml(pointExplanation(sub.value,x))+"</p></li>").join("");
+    const unitInfo = officialUnitInfo(cls.value, sub.value, q);
     const plainExplanation = typeof learning.simpleExplanation === "function" ? learning.simpleExplanation(sub.value, q) : q.explain;
     const example = typeof learning.workedExample === "function" ? learning.workedExample(sub.value, q) : null;
     const exampleSteps = example ? example.steps.map((x,i) => "<li><b>Step " + (i+1) + ":</b> " + escapeHtml(x) + "</li>").join("") : "";
