@@ -526,6 +526,8 @@
     }
     active = { className: classSelect.value, subject: subjectSelect.value, course: c, item };
     const points = item.key.map(x => '<li>' + escapeHtml(x) + '</li>').join("");
+    const example = workedExample(active.subject, item);
+    const exampleSteps = example.steps.map((x,i) => '<li><strong>Step ' + (i+1) + ':</strong> ' + escapeHtml(x) + '</li>').join("");
     const unitLabel = c.units ? "Official syllabus unit / topic" : "Chapter / topic";
     const unitInfo = officialUnitInfo(active.className, active.subject, item);
     panel.innerHTML =
@@ -533,11 +535,12 @@
       '<h3 class="chapter-title">' + escapeHtml(item.title) + '</h3>' +
       '<div class="simple-lesson"><h4>1. Bilkul simple language mein samjho</h4><p class="chapter-explain">' + escapeHtml(simpleExplanation(active.subject, item)) + '</p><details><summary>Thoda aur detail mein samjho</summary><p>' + escapeHtml(item.explain) + '</p></details></div>' +
       '<h4>2. Board ke liye ye important points yaad rakho</h4><ul class="chapter-points">' + points + '</ul>' +
-      '<div class="worked-example"><h4>3. Example: question ko kaise solve/answer karna hai</h4><p class="self-question">' + escapeHtml(item.question) + '</p><p><strong>Sample answer / working:</strong> ' + escapeHtml(item.answer) + '</p><p class="small">Pehle sawal khud try karo, phir answer compare karo. Ye StudySpace practice example hai, official board question hone ka claim nahi.</p></div>' +
-      '<div class="mistake-box"><h4>4. Common mistake se bacho</h4><p>' + escapeHtml(commonMistake(active.subject)) + '</p></div>' +
+      '<div class="worked-example"><h4>3. Example se samjho</h4><p><strong>Situation:</strong> ' + escapeHtml(example.situation) + '</p><ol class="example-steps">' + exampleSteps + '</ol><p><strong>Answer / conclusion:</strong> ' + escapeHtml(example.result) + '</p><p><strong>Is example ka lesson:</strong> ' + escapeHtml(example.takeaway) + '</p><p class="small">Ye samjhane ke liye original example hai; ise official board paper ka question na samjho.</p></div>' +
+      '<div class="practice-box"><h4>4. Ab khud try karo</h4><p class="self-question">' + escapeHtml(item.question) + '</p><details><summary>Sample answer / working dekho</summary><p>' + escapeHtml(item.answer) + '</p></details></div>' +
+      '<div class="mistake-box"><h4>5. Common mistake se bacho</h4><p>' + escapeHtml(commonMistake(active.subject)) + '</p></div>' +
       (unitInfo ? '<div class="weightage-box"><strong>Official board unit weightage: ' + escapeHtml(unitInfo.label) + '</strong><p>' + escapeHtml(unitInfo.note) + '</p><p class="small">Official source: 2026–27 subject syllabus PDF linked below. Unit marks are not per-chapter predictions.</p></div>' : '<div class="weightage-box weightage-neutral"><strong>Board importance check</strong><p>Exact unit-wise marks are not displayed here for this class/subject. Check the linked official syllabus and current model paper instead of trusting guessed “most important questions”.</p></div>') +
       (item.formula ? '<div class="formula-box"><strong>Formula / key relation</strong><p>' + escapeHtml(item.formula) + '</p></div>' : '') +
-      '<div class="exam-box"><h4>Board ke liye kya padhna hai?</h4><p>' + escapeHtml(boardPlan(active.subject)) + '</p><ol><li>Upar diye gaye core points bina dekhe explain karne ki koshish karo.</li><li>Prescribed textbook se isi topic ke solved example aur exercise questions karo.</li><li>Official UPMSP question bank/model paper mein isi subject ka question format check karo.</li></ol><p><strong>Important:</strong> ye revision priority hai, guaranteed exam prediction ya official marking scheme nahi.</p></div>' +
+      '<div class="exam-box"><h4>6. Board ke liye kya padhna hai?</h4><p>' + escapeHtml(boardPlan(active.subject)) + '</p><ol><li>Upar diye gaye core points bina dekhe explain karne ki koshish karo.</li><li>Prescribed textbook se isi topic ke solved example aur exercise questions karo.</li><li>Official UPMSP question bank/model paper mein isi subject ka question format check karo.</li></ol><p><strong>Important:</strong> ye revision priority hai, guaranteed exam prediction ya official marking scheme nahi.</p></div>' +
 
       '<p class="small note-source">Syllabus source: <a href="' + escapeHtml(c.source) + '" target="_blank" rel="noopener noreferrer">Official UPMSP subject syllabus PDF ↗</a>. Compare the latest official PDF before final exam preparation.</p>';
     status.textContent = c.chapters.length + " " + (c.units ? "units/topics" : "chapters/topics") + " available for " + active.className + " " + active.subject + ".";
@@ -588,7 +591,13 @@
       addText("Formula / key relation", 12, 2, "bold");
       addText(active.item.formula, 11, 4);
     }
-    addText("Worked example / sample question", 12, 2, "bold");
+    const example = workedExample(active.subject, active.item);
+    addText("Worked example in simple language", 12, 2, "bold");
+    addText("Situation: " + example.situation, 10, 2);
+    example.steps.forEach((step,i) => addText("Step " + (i+1) + ": " + step, 10, 1));
+    addText("Answer / conclusion: " + example.result, 10, 2);
+    addText("Lesson from the example: " + example.takeaway, 10, 4);
+    addText("Now try it yourself", 12, 2, "bold");
     addText(active.item.question, 11, 2, "bold");
     addText("Sample answer / working: " + active.item.answer, 10, 4);
     addText("Common mistake to avoid", 12, 2, "bold");
@@ -626,6 +635,6 @@
     if (c) window.open(c.source, "_blank", "noopener,noreferrer");
   });
   $("printChapterNotes").addEventListener("click", () => window.print());
-  window.STUDYSPACE_LEARNING = { simpleExplanation, commonMistake };
+  window.STUDYSPACE_LEARNING = { simpleExplanation, workedExample, commonMistake };
   populateSubjects();
 })();
