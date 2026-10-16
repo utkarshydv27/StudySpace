@@ -1247,6 +1247,65 @@
     return null;
   }
 
+  function corePointExplanation(subject, point) {
+    const p = String(point || "").trim();
+    const low = p.toLowerCase();
+    const v = String(subject || "").toLowerCase();
+    const pair = p.match(/^(?:distinguish|compare)\s+(.+?)\s+(?:and|from|with|vs\.?)\s+(.+)$/i);
+    if (pair && /distinguish/i.test(p)) {
+      return "Dono terms ko same mat samjho. Board answer mein pehle har term ka chhota meaning likho, phir ek exact difference aur zarurat ho to example do.";
+    }
+    if (pair && /compare/i.test(p)) {
+      return "Dono cheezon ko ek jaise features par compare karo—jaise meaning, function, cause ya result. Sirf alag-alag definitions likhne ke bajay clear difference dikhao.";
+    }
+    if (/^connect\b/i.test(p)) {
+      return "Dono ideas ke beech ka link samjhao. Answer ko cause → process → result ya structure → function ki tarah jodo, jo is chapter par apply hota ho.";
+    }
+    if (/^explain\b/i.test(p)) {
+      return "Sirf naam ya point likhna kaafi nahi. Pehle claim likho, phir kyun/kaise hota hai uska reason do, aur chapter ke example se support karo.";
+    }
+    if (/^identify\b|^recognise\b|^recognize\b/i.test(p)) {
+      return "Question mein diye clue ko dekho aur usse correct term, rule, process ya feature se match karo. Answer ke saath woh clue bhi mention karo jo tumhare choice ko support karta hai.";
+    }
+    if (/^use\b|^apply\b/i.test(p)) {
+      return "Is point ko question mein practically apply karna hota hai. Given information pehle note karo, suitable rule/method choose karo, steps dikhao aur answer check karo.";
+    }
+    if (/^know\b|^learn\b|^revise\b/i.test(p)) {
+      return "Iska matlab sirf line ratna nahi. Is term ka meaning apni language mein samjhao, iska role/importance batao aur niche diye worked example mein isse identify karne ki koshish karo.";
+    }
+    if (/^practise\b|^practice\b/i.test(p)) {
+      return "Pehle notes band karke khud ek example solve/draw/write karo, phir sample answer se compare karo. Galti hui to usi step ko dobara practise karo.";
+    }
+    if (/^check\b|^verify\b/i.test(p)) {
+      return "Final answer ko original condition, formula, units ya source se dobara milao. Ek quick check se pata chal sakta hai ki calculation, spelling ya reasoning mein mistake hui hai.";
+    }
+    if (/^write\b|^state\b|^define\b|^name\b/i.test(p)) {
+      return "Answer ko seedhe aur exact words mein shuru karo. Definition/name ke baad ek short reason, example, labelled diagram ya working jodo—sirf wahi jo question maangta hai.";
+    }
+    if (/^avoid\b|^do not\b|^don't\b/i.test(p)) {
+      return "Ye common trap hai. Answer likhne se pehle is galti ke opposite sahi rule ko yaad karo aur check karo ki tumhara example/working us rule se match karta hai.";
+    }
+    if (/^\w+\s*(?:=|=|:|→)/.test(p) || /formula|equation|ratio|unit|degree|mass number|atomic number/i.test(p)) {
+      return "Statement/formula ko words mein padhna seekho: har symbol/term ka meaning samjho, phir ek suitable value/example par apply karo. Formula ya definition ko bina samjhe use mat karo.";
+    }
+    if (/^keep\b|^follow\b|^read\b|^track\b|^separate\b|^mark\b/i.test(p)) {
+      return "Is step se answer organised aur accurate rehta hai. Relevant detail mark karo, phir usko answer ke correct part mein use karo; end mein question ke har part ko cover kiya ya nahi check karo.";
+    }
+    if (/^avoid\b|^distinguish\b/i.test(low)) {
+      return "Similar terms ko confuse na karo. Har term ka meaning likho aur ek feature ke basis par farq clear karo.";
+    }
+    if (/math|physics|chemistry|accountancy/.test(v)) {
+      return "Is core point ko numerical ya rule-based question mein apply karo. Given/asked likho, rule/formula select karo, working step-by-step dikhao aur final unit/result verify karo.";
+    }
+    if (/science|biology/.test(v)) {
+      return "Is point ko definition + process/function se samjho. Agar sequence hai to steps order mein likho; agar structure hai to part ka naam aur uska function connect karo.";
+    }
+    if (/history|geography|civics|political|economics|business/.test(v)) {
+      return "Is point ko apne words mein samjha kar relevant cause, effect, comparison ya example jodo. Board answer mein facts accurate rakho aur point ko question se directly relate karo.";
+    }
+    return "Is point ko apne words mein explain karo, phir chapter ke worked example se connect karo. Board answer mein relevant detail/evidence do aur question se unrelated information avoid karo.";
+  }
+
   function renderNotes() {
     const c = course();
     const item = chapter();
@@ -1256,7 +1315,9 @@
       return;
     }
     active = { className: classSelect.value, subject: subjectSelect.value, course: c, item };
-    const points = item.key.map(x => '<li>' + escapeHtml(x) + '</li>').join("");
+    const points = item.key.map((x,i) =>
+      '<li class="core-point"><strong>' + escapeHtml(x) + '</strong><p>' + escapeHtml(corePointExplanation(active.subject, x)) + '</p></li>'
+    ).join("");
     const example = workedExample(active.subject, item);
     const exampleSteps = example.steps.map((x,i) => '<li><strong>Step ' + (i+1) + ':</strong> ' + escapeHtml(x) + '</li>').join("");
     const unitLabel = c.units ? "Official syllabus unit / topic" : "Chapter / topic";
@@ -1317,7 +1378,7 @@
     addText("Further detail", 11, 2, "bold");
     addText(active.item.explain, 10, 4);
     addText("Important points to remember", 12, 2, "bold");
-    active.item.key.forEach((p,i) => addText((i+1) + ". " + p, 11, 1));
+    active.item.key.forEach((p,i) => { addText((i+1) + ". " + p, 11, 1, "bold"); addText("Simple meaning: " + corePointExplanation(active.subject, p), 9, 2); });
     if (active.item.formula) {
       addText("Formula / key relation", 12, 2, "bold");
       addText(active.item.formula, 11, 4);
@@ -1366,6 +1427,6 @@
     if (c) window.open(c.source, "_blank", "noopener,noreferrer");
   });
   $("printChapterNotes").addEventListener("click", () => window.print());
-  window.STUDYSPACE_LEARNING = { simpleExplanation, workedExample, commonMistake };
+  window.STUDYSPACE_LEARNING = { simpleExplanation, workedExample, commonMistake, corePointExplanation };
   populateSubjects();
 })();
