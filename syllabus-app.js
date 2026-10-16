@@ -455,6 +455,119 @@
         "1.2 m = 120 cm.",
         "Calculations se pehle quantities ko consistent units mein convert karo.")]
     ];
+    const topicExamples = {
+      "algebra": () => make(
+        "Equation 2x + 3 = 11 solve karni hai.",
+        ["Dono sides se 3 subtract karo: 2x = 8.", "Dono sides ko 2 se divide karo: x = 4.", "Original equation mein value rakho: 2×4+3=11, isliye answer check ho gaya."],
+        "x = 4.",
+        "Equation ko balance ki tarah samjho: jo operation ek side karte ho, wahi doosri side bhi karo."),
+      "geometry": () => make(
+        "Ek straight line par do adjacent angles hain: 110° aur x.",
+        ["Straight line ke angles ka total 180° hota hai.", "Equation likho: x + 110° = 180°.", "110° subtract karo."],
+        "x = 70°.",
+        "Diagram banao, known angles mark karo, phir theorem/angle property ka naam likho."),
+      "india: size and location": () => make(
+        "Map par India ko locate karke samjho ki alag-alag regions mein sunrise ka local time thoda alag kyun hota hai.",
+        ["Earth west se east rotate karti hai.", "Longitude badalne se local solar time change hota hai.", "Standard time ek agreed meridian se liya jata hai, taaki desh mein common clock time use ho."],
+        "India standard time ek common reference time deta hai; map par latitude, longitude aur neighbouring countries practise karo.",
+        "Map answer mein direction, location aur correct place names use karo."),
+      "electoral politics and institutions": () => make(
+        "School class representative choose karne ke liye sab students vote karte hain.",
+        ["Candidates apne plans batate hain.", "Students apna vote dete hain aur votes count hote hain.", "Fair process ke liye voter list, secret ballot/counting jaise safeguards hote hain—board answer mein official election institutions ke roles likho."],
+        "Election se representatives choose hote hain; election process ko fair aur accountable banana institutions ki responsibility hai.",
+        "Election Commission, legislature, executive aur judiciary ke roles ko ek-doosre ke saath mix mat karo."),
+      "control and coordination": () => make(
+        "Kisi ne garam bartan touch kiya aur haath jaldi peeche kheench liya.",
+        ["Skin ke receptors heat/pain stimulus detect karte hain.", "Nerve signals spinal cord tak jaate hain aur motor signal muscles tak pahunchta hai.", "Muscles contract karke haath hata dete hain; baad mein brain sensation ko consciously process karta hai."],
+        "Is fast automatic response ko reflex action kehte hain.",
+        "Reflex arc ke parts sequence mein likho, aur receptor, sensory neuron, spinal cord, motor neuron aur effector ka role samjho."),
+      "light: reflection and refraction": () => make(
+        "Paani ke glass mein pencil daalne par pencil bent ya displaced si dikhti hai.",
+        ["Light pencil se aate hue paani aur hawa ke boundary par guzarti hai.", "Medium change hone par light ki speed change hoti hai aur ray bend ho sakti hai.", "Isi effect ko refraction kehte hain; ray diagram se incident ray, normal aur refracted ray label karo."],
+        "Pencil ka apparent bend refraction ka everyday example hai.",
+        "Reflection mein ray wapas bounce karti hai; refraction mein medium change karte waqt direction/speed badal sakti hai."),
+      "electricity": () => make(
+        "Circuit mein voltage 12 V aur resistance 4 Ω hai; current find karna hai.",
+        ["Given V=12 V, R=4 Ω.", "Ohm's law I=V/R use karo.", "I=12/4=3 A."],
+        "Current = 3 A.",
+        "Formula ke saath A (ampere) unit likho aur resistance/voltage ke units check karo."),
+      "magnetic effects of electric current": () => make(
+        "Compass ko current-carrying wire ke paas rakho; compass needle turn karti hai.",
+        ["Electric current wire ke aas-paas magnetic field banata hai.", "Compass needle magnetic field ke direction se align karne ki koshish karti hai.", "Current reverse karoge to magnetic field ki direction bhi reverse hoti hai."],
+        "Current ka magnetic effect compass needle se observe kiya ja sakta hai.",
+        "Right-hand thumb rule ya prescribed direction rule ke steps clear likho."),
+      "development": () => make(
+        "Do villages ki average income same hai, lekin ek village mein school aur clinic nahi hain.",
+        ["Average income ek indicator hai, poori quality of life nahi.", "Education, health, safe water aur distribution bhi compare karo.", "Dono villages ke public facilities aur opportunities dekhkar fuller judgement banao."],
+        "Development ko sirf income se measure karna incomplete hai.",
+        "Growth, average income, income distribution aur human development ko alag concepts ki tarah explain karo."),
+      "neural and chemical coordination": () => make(
+        "Exam se pehle heartbeat tez ho sakti hai; body mein neural signals aur hormones dono roles play karte hain.",
+        ["Nervous system electrical signals ke through fast communication karta hai.", "Endocrine glands hormones blood mein release kar sakti hain.", "Hormones target cells/organs par effect karte hain; exact response hormone par depend karta hai."],
+        "Neural signals aur hormones coordination ke different but connected methods hain.",
+        "Hormone ka naam, source gland aur function tabhi likho jab prescribed chapter mein ho aur sure ho."),
+      "social hierarchies and changing traditions": () => make(
+        "Ek historical event ke baare mein ruler ka inscription aur ordinary people ka account alag detail de sakte hain.",
+        ["Dono sources ka time, author aur purpose identify karo.", "Dekho kis group ka perspective represent ho raha hai.", "Sources ko compare karke similarities, differences aur limitations explain karo."],
+        "Historians multiple sources compare karte hain taaki ek source ki bias ya gaps ko samajh saken.",
+        "Source se kya pata chalta hai aur kya infer kiya ja raha hai, dono ko alag rakho."),
+      "public, private and global enterprises": () => make(
+        "Do companies ek naya product develop karne ke liye resources aur expertise share karne ka agreement karti hain.",
+        ["Dono parties ka contribution identify karo.", "Common goal aur risks/returns ke arrangement ko samjho.", "Aise cooperative business arrangement ko joint venture kaha ja sakta hai, agreement ke details ke hisaab se."],
+        "Joint venture mein parties defined enterprise ke liye milkar kaam karti hain.",
+        "Public/private ownership aur joint venture jaise arrangement ko alag terms samjho."),
+      "social responsibility and ethics": () => make(
+        "Factory smoke filters lagati hai aur workers ko safety equipment deti hai.",
+        ["Pollution control community/environment ko protect karne mein help karta hai.", "Safety equipment workers ke risk ko reduce karne mein help karta hai.", "Business decision ko stakeholders aur ethical responsibility se connect karo."],
+        "Profit ke saath safety, society aur environment par impact bhi business decisions mein important hai.",
+        "Business example mein stakeholder, action aur expected benefit explain karo."),
+      "vector algebra": () => make(
+        "Vector a=(1,0) aur b=(0,1) coordinate plane mein hain.",
+        ["Dot product: a·b = 1×0 + 0×1.", "Calculation 0+0=0 hoti hai.", "Zero dot product non-zero vectors ke perpendicular hone ko indicate karta hai."],
+        "a·b = 0; vectors perpendicular hain.",
+        "Dot product scalar hota hai; cross product ka result vector hota hai."),
+      "electric charges and fields": () => make(
+        "Positive point charge ke aas-paas electric field ki direction draw karni hai.",
+        ["Imagine ek tiny positive test charge rakha hai.", "Positive source charge use repel karega.", "Isliye electric field lines positive point charge se bahar ki taraf point karti hain."],
+        "Positive point charge ke field lines radially outward hoti hain.",
+        "Field direction positive test charge par lagne wali force ki direction hai."),
+      "electrostatic potential and capacitance": () => make(
+        "Capacitor par charge Q=6 C hai aur potential difference V=3 V hai.",
+        ["Capacitance ka relation C=Q/V hai.", "Values put karo: C=6/3.", "Calculation karke units C/V, ya farad, likho."],
+        "Capacitance = 2 F.",
+        "Capacitance charge aur potential difference ka ratio hai; charge ki unit coulomb aur potential ki volt hai."),
+      "moving charges and magnetism": () => make(
+        "Charged particle magnetic field ke bilkul parallel move kar raha hai.",
+        ["Magnetic force ka magnitude F=|q|vB sinθ hai.", "Parallel motion ke liye θ=0° aur sin0°=0.", "Isliye magnetic force zero hota hai."],
+        "F=0 jab velocity field ke parallel/antiparallel ho, ideal relation ke mutabik.",
+        "Magnetic force velocity aur field dono par depend karti hai; charge rest par ho to magnetic force zero hota hai."),
+      "optics": () => make(
+        "Converging lens ki focal length f=+0.5 m hai.",
+        ["Lens power P=1/f (f metre mein).", "P=1/0.5=2.", "Converging lens ke liye prescribed sign convention use karke positive power likho."],
+        "Lens power +2 dioptres hai.",
+        "Focal length ko centimetre se metre mein convert karo before using P=1/f."),
+      "primary, secondary and tertiary activities": () => make(
+        "Ek farmer wheat ugata hai, mill wheat se flour banati hai, aur shop flour customer ko bechti hai.",
+        ["Wheat ugana natural resource produce karna hai: primary activity.", "Flour manufacture raw material process karta hai: secondary activity.", "Shop ki selling/service activity tertiary sector mein aati hai."],
+        "Farmer = primary, mill = secondary, shop = tertiary.",
+        "Activity ko sector mein classify karte waqt kaam kya ho raha hai, woh dekho."),
+      "globalisation and contemporary politics": () => make(
+        "Ek T-shirt ka cotton ek country mein grow hota hai, kapda doosri jagah banta hai aur product kai countries mein sell hota hai.",
+        ["Raw material, manufacturing, transport aur sales different places par ho sakte hain.", "Companies aur workers ko naye markets aur competition dono mil sakte hain.", "Benefits aur costs groups ke beech equal nahi batne zaroori."],
+        "Globalisation places ko trade, production, technology aur culture ke through connect karti hai.",
+        "Answer mein ek benefit aur ek challenge/unequal effect example ke saath explain karo."),
+      "indian economic development": () => make(
+        "GDP badh raha hai, lekin kuch households ki income aur public services mein improvement kam hai.",
+        ["GDP overall economic production ka indicator hai.", "Average aur distribution dekho: growth ka benefit kis ko mila?", "Health, education, jobs aur infrastructure jaise indicators bhi consider karo."],
+        "GDP growth akela prove nahi karta ki har household ki wellbeing improve hui.",
+        "Economic development ke answer mein growth ke saath distribution aur quality-of-life aspects bhi likho."),
+      "admission, retirement and dissolution": () => make(
+        "Partners A aur B ka old profit ratio 3:2 hai. Naya partner C ko 1/4 share diya jata hai aur baaki share old ratio mein banta hai.",
+        ["Remaining share = 1−1/4 = 3/4.", "A ko (3/5)×(3/4)=9/20 aur B ko (2/5)×(3/4)=3/10 milta hai.", "A ka sacrifice=3/5−9/20=3/20; B ka sacrifice=2/5−3/10=1/10. Dono sacrifices ka total 1/4 hai, jo C ke share ke equal hai."],
+        "Sacrificing ratio A:B = 3/20:1/10 = 3:2.",
+        "Admission questions mein old share, new share aur sacrifice/gain ko same denominator par likhkar compare karo.")
+    };
+    if (topicExamples[t]) return topicExamples[t]();
     for (const [pattern, build] of rules) if (pattern.test(t)) return build();
 
     if (/math|physics|chemistry|accountancy/.test(v)) {
