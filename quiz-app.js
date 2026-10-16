@@ -129,12 +129,15 @@
     const unitInfo = officialUnitInfo(cls.value, sub.value, q);
     const learning = window.STUDYSPACE_LEARNING || {};
     const plainExplanation = typeof learning.simpleExplanation === "function" ? learning.simpleExplanation(sub.value, q) : q.explain;
+    const example = typeof learning.workedExample === "function" ? learning.workedExample(sub.value, q) : null;
+    const exampleSteps = example ? example.steps.map((x,i) => "<li><b>Step " + (i+1) + ":</b> " + escapeHtml(x) + "</li>").join("") : "";
     const commonMistake = typeof learning.commonMistake === "function" ? learning.commonMistake(sub.value) : "Answer ko prescribed textbook se compare karo.";
     feedback.innerHTML =
       '<div class="quiz-feedback">' +
       '<h3>Answer</h3><p class="answer-text">' + escapeHtml(q.answer) + '</p>' +
       '<h4>Bilkul simple language mein</h4><p>' + escapeHtml(plainExplanation) + '</p>' +
       '<details><summary>Further explanation from the study notes</summary><p>' + escapeHtml(q.explain) + '</p></details>' +
+      (example ? '<h4>Chhota worked example</h4><p><b>Situation:</b> ' + escapeHtml(example.situation) + '</p><ol>' + exampleSteps + '</ol><p><b>Answer:</b> ' + escapeHtml(example.result) + '</p><p><b>Yaad rakho:</b> ' + escapeHtml(example.takeaway) + '</p>' : '') +
       '<h4>Board ke liye ye core points revise karo</h4><ul>' + points + '</ul>' +
       (q.formula ? '<p><b>Formula / key relation:</b> ' + escapeHtml(q.formula) + '</p>' : '') +
       (unitInfo ? '<p><b>Official Class 10 unit weightage:</b> ' + escapeHtml(unitInfo) + ' Ye poore unit ke marks hain, is ek question ki guarantee nahi.</p>' : '<p><b>Board importance:</b> is screen par is class/subject ka exact unit-wise marks breakdown verify nahi hai. Official syllabus/model paper check karo; guessed marks par depend mat karo.</p>') +
