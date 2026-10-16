@@ -891,6 +891,228 @@
         ["Shares ki count = 100.", "Issue price = ₹10 per share.", "Share capital proceeds = 100×10=₹1,000."],
         "Received share capital amount ₹1,000 hai; debenture issue borrowing/debt ko represent karta hai.",
         "Shares (ownership capital) aur debentures (debt) ka distinction answer mein clear likho.")
+
+      ,
+      "natural vegetation and wildlife": () => make(
+        "Ek region mein hot, wet climate hai; doosre region mein rainfall kam hai.",
+        ["Temperature aur rainfall vegetation ke types ko affect karte hain.", "Dense forest, grassland ya desert vegetation local conditions se linked ho sakti hai.", "Wildlife habitat aur food availability par depend karti hai."],
+        "Vegetation ko climate, soil aur habitat ke saath explain karo.",
+        "Prescribed vegetation types aur protected-area examples textbook se revise karo."),
+      "population": () => make(
+        "Town A mein 20,000 log 10 km² area mein rehte hain.",
+        ["Population density = total people ÷ area.", "20,000÷10=2,000.", "Unit people per km² likho."],
+        "Population density 2,000 people/km² hai.",
+        "Population size, density, growth aur composition ko alag terms ki tarah yaad karo."),
+      "physical features of india": () => make(
+        "Map par Himalayas, Northern Plains aur Peninsular Plateau ko locate karo.",
+        ["Mountain region relief, climate aur rivers ko influence karta hai.", "Plains mein alluvial soils aur rivers agriculture ko support kar sakti hain.", "Plateau areas ki rock structure/minerals aur relief alag ho sakte hain."],
+        "Major physiographic divisions ki location aur feature ko pair mein learn karo.",
+        "Map labels ke saath 1–2 characteristic features bhi explain karo."),
+      "drainage": () => make(
+        "Rainfall catchment area mein girkar small streams ke through main river tak pahunchti hai.",
+        ["Streams milkar river system banati hain.", "River basin us area ko include karta hai jahan ka water same river system mein drain hota hai.", "River use, flood risk aur pollution basin ke different parts ko connect kar sakte hain."],
+        "Drainage system ko river, tributaries aur basin ke relationship ke through samjho.",
+        "Major rivers aur tributaries ki map practice official textbook ke through karo."),
+      "climate": () => make(
+        "Ek city mein July mein heavy monsoon rain hoti hai, jabki winter months mein rainfall kam ho sakti hai.",
+        ["Weather short-term condition hai; climate long-term pattern hota hai.", "Pressure, winds, latitude, altitude aur sea se distance climate ko affect karte hain.", "Monsoon onset/withdrawal aur rainfall distribution ko region ke context mein explain karo."],
+        "Climate ko long-term pattern aur weather ko short-term condition ke roop mein define karo.",
+        "India ke monsoon mechanism aur regional examples prescribed syllabus se revise karo."),
+      "forest society and colonialism": () => make(
+        "Colonial government timber production ke liye forest rules strict karti hai.",
+        ["Commercial use ke liye certain trees aur areas ko prioritise kiya ja sakta hai.", "Local people ke grazing, fuel, shifting cultivation ya forest produce collection par restrictions lag sakti hain.", "Livelihood changes resistance ya new practices ko trigger kar sakte hain."],
+        "Colonial forest policy ko state objective, local impact aur community response se explain karo.",
+        "Prescribed textbook ke specific forest community/case study ka example use karo."),
+      "people as resource, poverty and food security": () => make(
+        "Family ke paas food market mein available hai, lekin income kam hone ki wajah se woh enough nutritious food nahi khareed paati.",
+        ["Food availability aur household access alag cheezein hain.", "Income, prices, employment aur distribution access ko affect karte hain.", "Food security ka matlab reliable access, not just food existing in the market."],
+        "Poverty aur food security linked hain, kyunki resources ki kami food access ko reduce kar sakti hai.",
+        "Poverty, unemployment aur food security ki definitions ko separate revise karo."),
+      "what is democracy? why democracy?": () => make(
+        "Class representative fair process se choose hota hai aur students usse questions pooch sakte hain.",
+        ["People ko choice dene ke liye fair election zaroori hai.", "Representative ko answerable rehna chahiye.", "Country ke context mein rights, institutions aur free/fair elections ki importance explain karo."],
+        "Democracy sirf voting nahi; accountability, rights aur participation bhi important hain.",
+        "Democracy ki features aur arguments ko relevant example ke saath likho."),
+      "constitutional design": () => make(
+        "School ke written rules batate hain kiski responsibility kya hai aur complaint kaise raise hogi.",
+        ["Rules institutions aur decision-making ka framework banate hain.", "Constitution government powers define karta hai aur unki limits establish karta hai.", "Constitutional values rights aur fair treatment ko guide karti hain."],
+        "Constitution institutions organise karta hai aur power ko regulate karta hai.",
+        "Preamble/constitutional values aur constitution-making process ko prescribed course se revise karo."),
+      "development": () => make(
+        "Do families ki income same hai, lekin ek ke paas clean water, school aur clinic nearby hain aur doosri ke paas nahi.",
+        ["Income compare karo, lekin public facilities bhi dekho.", "Health, education, safety aur opportunities wellbeing ko affect karte hain.", "Different people different development goals value kar sakte hain."],
+        "Development ka assessment sirf average income se complete nahi hota.",
+        "Per-capita income ki limitation aur public facilities ka role explain karo."),
+      "sectors of the economy": () => make(
+        "Farmer wheat grow karta hai, mill flour banati hai aur shop customer ko flour bechti hai.",
+        ["Farming primary activity hai because natural resource se output milta hai.", "Mill processing karti hai, so secondary activity hai.", "Shop selling/service provide karti hai, so tertiary activity hai."],
+        "Primary = extraction/growing, secondary = manufacturing, tertiary = services.",
+        "Economic activity ko actual kaam ke basis par classify karo."),
+      "consumer rights": () => make(
+        "Customer packaged food kharidta hai aur label par quantity, price aur expiry date check karta hai.",
+        ["Label consumer ko important product information deta hai.", "Bill purchase ka evidence hota hai.", "Product unsafe/defective ya information misleading ho to official complaint/redress mechanism use kiya ja sakta hai."],
+        "Information, safety, choice aur redress consumer protection ke key ideas hain.",
+        "Consumer right ke saath practical example aur responsibility bhi revise karo."),
+      "plant physiology": () => make(
+        "Plant ki roots soil se water absorb karti hain aur water stem ke through leaves tak jaata hai.",
+        ["Roots water/minerals absorb karti hain.", "Xylem water transport mein main role play karta hai.", "Leaves mein photosynthesis ke liye water, carbon dioxide aur light required hote hain."],
+        "Plant transport, nutrition aur photosynthesis ko steps aur structures ke saath connect karo.",
+        "Prescribed process ka labelled diagram aur each part ka function practise karo."),
+      "human physiology: digestion and breathing": () => make(
+        "Roti ka starch digestion ke dauran smaller molecules mein break hota hai; lungs oxygen ko blood tak pahunchate hain.",
+        ["Digestive enzymes food molecules ko break down karte hain.", "Small intestine nutrients absorb karne mein major role rakhti hai.", "Lungs ke alveoli large surface area provide karte hain for gas exchange."],
+        "Digestion food ko absorbable molecules mein convert karti hai; breathing air movement hai, cellular respiration cells ke andar energy release process hai.",
+        "Enzyme, organ aur function ke matching ko prescribed syllabus se revise karo."),
+      "neural and chemical coordination": () => make(
+        "Garam object ko touch karne par quick reflex aur longer hormone responses different signals use karte hain.",
+        ["Nervous system nerve impulses se fast signalling karta hai.", "Endocrine glands hormones blood mein release karti hain.", "Hormones specific target cells/organs par effect kar sakte hain."],
+        "Nervous aur endocrine coordination speed, signal type aur duration mein differ karte hain.",
+        "Hormone, gland aur function ko correct pair mein learn karo."),
+      "structure of atom": () => make(
+        "Carbon-14 ka atomic number 6 aur mass number 14 hai.",
+        ["Atomic number 6 ka matlab 6 protons.", "Mass number = protons + neutrons.", "Neutrons = 14−6=8."],
+        "Carbon-14 mein 6 protons aur 8 neutrons hain.",
+        "Atomic number, mass number, isotope aur ion ko distinguish karo."),
+      "classification and periodicity": () => make(
+        "Sodium aur chlorine ki periodic table positions se unki electronic arrangement aur properties compare kar sakte ho.",
+        ["Modern table atomic number ke increasing order mein organised hai.", "Same group ke elements ki outer-electron pattern related ho sakti hai.", "Atomic size, valency ya electronegativity trends ko across/down direction ke saath state karo."],
+        "Periodic trends position aur electron structure ke patterns se related hain.",
+        "Har trend ke liye direction aur reason prescribed limits ke andar explain karo."),
+      "redox reactions": () => make(
+        "Magnesium oxygen se react karke magnesium oxide bana sakta hai.",
+        ["Magnesium electrons lose karta hai: oxidation.", "Oxygen electrons gain karta hai: reduction.", "Oxidation aur reduction ek hi overall redox process mein saath hote hain."],
+        "Electron loss = oxidation; electron gain = reduction.",
+        "Oxidation number/ electron transfer method jo course mein hai, usi ko steps mein apply karo."),
+      "hydrocarbons": () => make(
+        "Ethane mein carbon atoms ke beech single bond hai, jabki ethene mein carbon-carbon double bond hai.",
+        ["Single-bond hydrocarbons generally alkanes hote hain.", "Double/triple bond unsaturation show karta hai.", "Structure ke basis par formula/name aur typical reaction identify karo."],
+        "Alkane, alkene aur alkyne ko bond type se distinguish karo.",
+        "IUPAC naming aur addition/substitution reactions prescribed examples ke saath practise karo."),
+      "diversity of living organisms": () => make(
+        "Unknown organism ko classify karne ke liye cell type, body structure aur other defined characteristics compare karte hain.",
+        ["Observable/reliable features note karo.", "Prescribed classification hierarchy apply karo.", "Multiple features ka use karo; one superficial feature par decision mat lo."],
+        "Classification organisms ko shared characteristics/relationships ke basis par organise karti hai.",
+        "Taxonomic hierarchy aur defining features ko prescribed textbook ke examples se revise karo."),
+      "structural organisation in plants and animals": () => make(
+        "Muscle tissue ke specialised cells contract kar sakte hain; plant xylem tissue water transport karta hai.",
+        ["Cells similar role ke liye organise ho sakte hain.", "Tissues milkar organs banate hain.", "Plant aur animal tissues structure/function ke hisaab se differ karte hain."],
+        "Cell → tissue → organ → organ system ka relationship samjho.",
+        "Tissue ka naam likhkar uska location aur function batane ki practice karo."),
+      "the age of industrialisation and print culture": () => make(
+        "Factory production ne goods ko large quantity mein banane ka tareeqa badla; print ne texts aur news ko wider readership tak pahunchaya.",
+        ["Industrialisation mein machines/factories aur labour organisation badal sakte hain.", "Print technology copies aur information circulation ko affect karti hai.", "Impact workers, readers, writers aur public debate par examples se explain karo."],
+        "Industrialisation production/work ko aur print culture information-sharing ko transform karti hai.",
+        "Dono themes ko alag examples aur cause-effect ke saath explain karo."),
+      "forms of business organisation": () => make(
+        "A small owner-run shop aur large company ke liability/control arrangements different hote hain.",
+        ["Ownership kiski hai identify karo.", "Owner ki liability aur decision power compare karo.", "Capital need, continuity aur legal identity jaise factors se suitable form evaluate karo."],
+        "Sole trader, partnership, company aur cooperative ko ownership, liability aur control ke basis par compare karo.",
+        "Question ke scenario se relevant criteria select karo; sirf definitions list mat karo."),
+      "small business and internal trade": () => make(
+        "A wholesaler bulk quantity mein goods retailer ko bechta hai; retailer chhoti quantities final customers ko bechta hai.",
+        ["Wholesaler storage/bulk distribution mein role play karta hai.", "Retailer consumer ke close hota hai aur product access/service deta hai.", "Small firms local employment aur specialised needs serve kar sakti hain."],
+        "Wholesale aur retail trade ka main difference buyer, quantity aur role hai.",
+        "Internal trade ke intermediaries aur documents prescribed syllabus ke hisaab se revise karo."),
+      "statistics for economics": () => make(
+        "Employment rates ka data 2019, 2020, 2021 ke liye table mein diya hai.",
+        ["Data ka source aur population identify karo.", "Years aur units correct order mein table/graph par show karo.", "Trend describe karo, lekin data se beyond conclusion mat nikalo."],
+        "Statistics economic facts ko organise karke compare karne mein help karta hai.",
+        "Source, time period, unit aur graph labels check karo."),
+      "introduction to microeconomics": () => make(
+        "Student ₹100 mein either book ya lunch kharid sakta hai, dono nahi.",
+        ["Budget limited hai, so choice karni hai.", "Book choose karne se lunch ka value next-best alternative chhoot sakta hai.", "Us foregone next-best option ko opportunity cost kehte hain."],
+        "Scarcity choice create karti hai; opportunity cost forgone next-best alternative hai.",
+        "Microeconomics individual consumers, firms aur markets par focus karti hai."),
+      "consumer behaviour and demand": () => make(
+        "Mango ka price kam ho jaata hai aur, other things equal, consumers zyada mango kharidte hain.",
+        ["Price aur quantity demanded ka relationship identify karo.", "Price change se demand curve par movement hota hai under other-things-equal assumption.", "Income/taste jaise factors change ho to demand curve shift ho sakti hai."],
+        "Demand schedule/curve price aur quantity demanded ka relationship show karti hai.",
+        "Movement along demand curve aur shift in demand ko separate samjho."),
+      "production, costs and market forms": () => make(
+        "Bakery rent har month same rehta hai, lekin flour cost loaves banane ke saath badhti hai.",
+        ["Rent short run mein fixed cost ho sakti hai.", "Flour output ke saath badhne wali variable cost hai.", "Total cost fixed aur variable cost ko combine karti hai."],
+        "Fixed vs variable cost ko cost kis tarah output ke saath change hoti hai, us se classify karo.",
+        "Market form compare karte waqt number of firms, product type aur market power dekho."),
+      "accounting principles and source documents": () => make(
+        "Shop ko supplier se ₹2,000 ka invoice milta hai.",
+        ["Invoice date, supplier, items aur amount verify karo.", "Document transaction ka evidence provide karta hai.", "Correct account/entry mein amount record karke source reference retain karo."],
+        "Source documents accounting records ko support aur verify karte hain.",
+        "Invoice, receipt, voucher aur bank statement ke purposes distinguish karo."),
+      "journal and ledger": () => make(
+        "Shop ₹500 cash se stationery kharidti hai.",
+        ["Transaction date aur accounts identify karo.", "Stationery/purchases account ka treatment prescribed rule ke according choose karo; cash reduce hota hai.", "Journal entry ke debit-credit sides aur narration likho, phir corresponding ledger accounts mein post karo."],
+        "Journal date-wise record hai; ledger account-wise summary hai.",
+        "Debit/credit decision transaction ke account types se justify karo."),
+      "cash book and bank reconciliation": () => make(
+        "Business ne cheque issue kar diya, lekin bank ne abhi process nahi kiya.",
+        ["Business cash book mein cheque issue date par record kar sakta hai.", "Bank statement mein amount tab tak appear nahi karega jab tak cheque clear na ho.", "Aise timing differences bank reconciliation statement mein adjust/explain hote hain."],
+        "Cash-book aur bank-statement balance timing ya unrecorded transactions ki wajah se differ kar sakte hain.",
+        "Outstanding cheque, deposit in transit, bank charges aur errors ka effect balance par apply karo."),
+      "trial balance and errors": () => make(
+        "₹1,000 sale sahi amount se record hui, lekin wrong customer/account mein post ho gayi.",
+        ["Debit-credit totals phir bhi equal ho sakte hain.", "Wrong account posting ek error hai, chahe trial balance balance ho.", "Error ko identify karke prescribed correction entry banao."],
+        "Balanced trial balance har accounting error-free record ki guarantee nahi.",
+        "Error of omission, commission, principle aur compensating errors ke examples revise karo."),
+      "depreciation and financial statements": () => make(
+        "Machine ₹10,000 ki hai aur simple straight-line assumption mein useful life 5 years, residual value zero hai.",
+        ["Depreciable cost = 10,000−0=10,000.", "Annual straight-line depreciation = 10,000÷5.", "Amount ko har year allocate karo, as long as given assumptions apply."],
+        "Annual depreciation ₹2,000 in this simplified example.",
+        "Useful life, residual value aur prescribed method question se hi lo."),
+      "accounting for partnership firms": () => make(
+        "Partners A aur B profit 3:2 ratio mein share karte hain.",
+        ["Total parts = 3+2=5.", "A ka share 3/5 aur B ka 2/5 hai.", "Agar profit ₹10,000 hai, A ₹6,000 aur B ₹4,000 share karenge before other deed adjustments."],
+        "Profit appropriation deed ke ratio aur conditions se calculate hoti hai.",
+        "Interest on capital/drawings, salary/commission jaise adjustments question mein diye hon to include karo."),
+      "nature and purpose of business": () => make(
+        "A baker ingredients kharidkar bread banata aur sell karta hai.",
+        ["Goods/service ka production/sale identify karo.", "Activity economic need serve karti hai aur usually income/profit aim hota hai.", "Demand, cost aur uncertainty ki wajah se risk bhi hota hai."],
+        "Business, profession aur employment ke purpose/qualification/return ko compare karo.",
+        "Economic activity aur non-economic activity ka distinction example se learn karo."),
+      "business environment and planning": () => make(
+        "New technology se online orders badhte hain, isliye shop ko delivery process plan karna padta hai.",
+        ["External technology/customer behaviour change identify karo.", "Goal aur required resources set karo.", "Plan implement karke result review karo; conditions badlein to plan adjust karo."],
+        "Business environment decisions ko affect karta hai; planning future action ko organise karti hai.",
+        "Planning steps aur environment dimensions prescribed terms se revise karo."),
+      "organising, staffing and directing": () => make(
+        "School event ke liye team tasks divide karti hai, suitable students select karti hai aur instructions deti hai.",
+        ["Organising tasks aur responsibility define karta hai.", "Staffing suitable people choose/develop karti hai.", "Directing team ko guide aur motivate karta hai."],
+        "Ye management functions different problems solve karte hain, par coordinated hote hain.",
+        "Case-based question mein clue ko correct management function se match karo."),
+      "controlling and financial management": () => make(
+        "Planned sales 100 units thi, actual sales 80 units nikli.",
+        ["Standard/target = 100; actual = 80.", "Gap = 20 units.", "Cause investigate karke corrective action decide karo."],
+        "Controlling standards, measurement, comparison aur corrective action ka cycle hai.",
+        "Financial management ke investment, financing aur dividend decisions ko controlling process se separate samjho."),
+      "financial markets and marketing": () => make(
+        "Company new water bottle launch karti hai aur customers ki needs ke hisaab se price, availability aur promotion decide karti hai.",
+        ["Product customer need solve karta hai ya nahi, check karo.", "Price, place aur promotion ko product ke saath plan karo.", "Financial market ka separate role funds/savings ko borrowers/investments se connect karna hai."],
+        "Marketing mix = product, price, place, promotion.",
+        "Financial market aur product marketing ke purpose ko mix mat karo."),
+      "consumer protection": () => make(
+        "Customer ka defective product hai aur bill/purchase evidence available hai.",
+        ["Product issue aur purchase details record karo.", "Consumer rights, seller/manufacturer responsibility aur suitable redress route check karo.", "Official current complaint process follow karo."],
+        "Bill and label complaint ko support kar sakte hain; rights aur procedures ko syllabus ke mutabik explain karo.",
+        "Consumer right, consumer responsibility aur redress mechanism ke difference revise karo."),
+      "atoms, nuclei and semiconductors": () => make(
+        "Carbon-14 ke nucleus mein atomic number 6 aur mass number 14 hai; semiconductor device mein p-n junction bhi study hota hai.",
+        ["Nucleus ke liye neutrons = mass number−atomic number = 14−6=8.", "Semiconductor ki conductivity conductor aur insulator ke beech hoti hai, aur doping se change ho sakti hai.", "p-n junction ke prescribed bias conditions mein current behaviour revise karo."],
+        "Atomic/nuclear quantities aur semiconductor principles ko separate subtopics ki tarah prepare karo.",
+        "Mass number, atomic number, fission/fusion aur diode behaviour ko mix mat karo."),
+      "d- and f-block elements": () => make(
+        "Transition-metal ions/compounds mein different oxidation states aur coloured compounds mil sakte hain.",
+        ["Partially filled d orbitals transition-metal behaviour mein important ho sakte hain.", "Oxidation states electron arrangements/chemical context se related hain.", "Colour aur magnetic properties ka explanation prescribed course ki electronic-transition model se do."],
+        "d/f-block properties ko electronic configuration aur periodic trends se connect karo.",
+        "Oxidation states, colour, magnetism aur catalytic properties ke textbook examples revise karo."),
+      "coordination compounds": () => make(
+        "Complex mein central metal ion ke around ligands attach hote hain.",
+        ["Central metal/ion identify karo.", "Metal se bonded ligand groups count karke coordination number identify karo.", "Naming mein ligand names aur metal name prescribed rules ke mutabik arrange karo."],
+        "Ligand electron pair donate karta hai; coordination number metal ke around direct bonded donor atoms ki count se related hota hai.",
+        "Ligand, coordination number, oxidation state aur geometry ko alag terms ki tarah learn karo."),
+      "biomolecules": () => make(
+        "Food mein carbohydrate, protein aur lipid jaise biomolecules hote hain.",
+        ["Carbohydrates energy source ho sakte hain.", "Proteins amino acids se bante hain aur structure/enzymes mein roles nibhaate hain.", "DNA/RNA genetic information ke storage/transfer se related hain."],
+        "Biomolecule type ko building block aur biological function se connect karo.",
+        "Carbohydrates, proteins, lipids, nucleic acids aur enzymes ke differences revise karo.")
     };
     if (topicExamples[t]) return topicExamples[t]();
     for (const [pattern, build] of rules) if (pattern.test(t)) return build();
