@@ -26,6 +26,13 @@ After Pages is live, submit the published URL in Google Search Console. Search i
 - Where verified from the official UPMSP 2026–27 subject PDFs, Class 10 unit-level written-paper weightage is shown for Mathematics, Science and Social Science. Unit marks are not guaranteed marks from an individual chapter.
 - Official UPMSP question-bank and model-paper pages are linked alongside the quiz for authentic objective and descriptive question practice.
 
+## Free Blogger alternative
+An import-ready Blogger theme is provided as [`blogger-theme.xml`](blogger-theme.xml). It contains the StudySpace syllabus selector, chapter explanations, PDF export, quiz and privacy policy. The educational scripts are embedded in the XML theme so the Blogger version does not depend on the GitHub site for its core learning code.
+
+To use it, first create a blog under your own Google account at https://www.blogger.com/. In Blogger, save a backup of the current theme, then open **Theme → arrow beside Customize → Restore** and upload `blogger-theme.xml`. Check the site on desktop and mobile before proceeding.
+
+To apply for monetisation, use the blog's **Earnings** section to create/link AdSense when Blogger makes the option available, and enable Auto ads only after the site is approved. A theme file cannot create an AdSense account or grant approval. See Google's [Blogger ads guide](https://support.google.com/adsense/answer/1269077) and [Auto ads guide](https://support.google.com/adsense/answer/9155509).
+
 ## Google AdSense setup
 - `ads.js` contains a guarded Auto Ads loader. Ads are intentionally disabled until the real AdSense client ID (`ca-pub-XXXXXXXXXXXXXXXX`) is configured and Auto Ads is enabled.
 - `privacy.html` describes advertising cookies and third-party data use; review and update it before approval if the site's actual data handling changes.
