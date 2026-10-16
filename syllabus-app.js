@@ -566,6 +566,223 @@
         ["Remaining share = 1−1/4 = 3/4.", "A ko (3/5)×(3/4)=9/20 aur B ko (2/5)×(3/4)=3/10 milta hai.", "A ka sacrifice=3/5−9/20=3/20; B ka sacrifice=2/5−3/10=1/10. Dono sacrifices ka total 1/4 hai, jo C ke share ke equal hai."],
         "Sacrificing ratio A:B = 3/20:1/10 = 3:2.",
         "Admission questions mein old share, new share aur sacrifice/gain ko same denominator par likhkar compare karo.")
+
+      ,
+      "food production": () => make(
+        "Ek farmer har saal same crop ugata hai aur soil nutrients kam hone lagte hain.",
+        ["Soil mein crop growth ke liye nutrients chahiye.", "Farmer crop rotation, suitable manure/fertilisers, irrigation aur pest management jaise methods consider karta hai.", "Legume crop rotation mein use karne se kuch conditions mein soil nitrogen improve ho sakta hai."],
+        "Balanced crop planning soil health aur long-term yield ko support kar sakti hai.",
+        "Manure, fertiliser, irrigation aur crop rotation ka difference aur suitable use explain karna practise karo."),
+      "the french revolution": () => make(
+        "France mein old regime ke dauraan society unequal thi aur state ko financial problems bhi thi.",
+        ["Third Estate mein common people par tax ka burden aur political inequality ka issue tha.", "1789 mein revolutionary events ne old order ko challenge kiya.", "Revolution ke ideas liberty, equality aur popular sovereignty ki debates ko influence karte rahe."],
+        "Causes ko social inequality, economic crisis aur political conflict ke links ke saath explain karo.",
+        "Answer mein causes, key events aur consequences ko alag headings ya connected points mein rakho."),
+      "socialism and the russian revolution": () => make(
+        "First World War ke dauraan Russia mein food shortages, war losses aur Tsar ke rule se dissatisfaction badhi.",
+        ["War aur economic pressure ne public anger badhaya.", "1917 mein revolutions hui aur Tsarist rule ka end hua.", "Bolsheviks ne October 1917 mein power li; baad ke developments ne Soviet state ko shape kiya."],
+        "War, social conditions aur political organisation ko revolution ke causes ke roop mein link karo.",
+        "February aur October 1917 ke events ko ek hi event mat likho; chronology revise karo."),
+      "nazism and the rise of hitler": () => make(
+        "Post-war Germany mein economic hardship, political instability aur resentment ne extremist politics ke liye space banaya.",
+        ["Versailles settlement aur economic crises jaise factors se resentment badhi.", "Nazis ne propaganda, nationalism aur scapegoating ka use kiya.", "Power consolidate hone ke baad dictatorship aur persecution hui."],
+        "Economic crisis apne aap dictatorship nahi banata; institutions, political choices aur propaganda bhi matter karte hain.",
+        "Nazi policies ke victims aur persecution ko seriously, accurately aur textbook evidence ke saath explain karo."),
+      "forest society and colonialism": () => make(
+        "Forest area mein colonial government timber supply ke liye trees aur forest access ko regulate karti hai.",
+        ["Commercial forestry ke liye selected tree species ko priority mil sakti hai.", "Local communities ke grazing, fuel, cultivation aur collection rights restrict ho sakte hain.", "People ke livelihoods aur forest-use practices par impact padta hai."],
+        "Forest policy ke answer mein policy goal, local impact aur resistance/adjustment ke examples jodo.",
+        "Har forest community ka experience same nahi tha; prescribed case study ka naam use karo."),
+      "pastoralists in the modern world": () => make(
+        "Pastoral family season ke hisaab se apne animals ko grazing aur water wale areas tak le jaati hai.",
+        ["Pasture aur water availability season ke saath change hoti hai.", "Seasonal movement animals ko feed karne mein help karta hai.", "Borders, grazing restrictions aur land-use changes routes ko affect kar sakte hain."],
+        "Pastoral mobility ek strategy hai jo environment aur livelihood conditions se linked hoti hai.",
+        "Pastoralist groups ke naam, route aur specific experiences current prescribed chapter se revise karo."),
+      "nationalism in europe": () => make(
+        "French Revolution ke baad citizenship aur sovereignty ke ideas Europe ke different regions mein spread hue.",
+        ["People ne nation aur shared political identity ke ideas par debate ki.", "Unification movements, wars aur leaders ne borders/political structures ko affect kiya.", "Nationalism ne kuch movements ko unite kiya, aur kuch contexts mein exclusion bhi create kiya."],
+        "Nationalism ko sirf ek slogan nahi, ideas + movements + political change ki process ke roop mein samjho.",
+        "Map/timeline aur key personalities ko official textbook ke hisaab se practise karo."),
+      "nationalism in india": () => make(
+        "Colonial rule ke against alag-alag groups ne freedom movement mein hissa liya, lekin unki concerns hamesha identical nahi thi.",
+        ["Non-Cooperation aur Civil Disobedience jaise movements ke goals aur methods samjho.", "Peasants, workers, business groups aur women ki participation ke examples dekho.", "Movement ki reach aur limits ko dono explain karo."],
+        "National movement ko many social groups ki participation aur different expectations ke through samjho.",
+        "Movement ka date/name likhne ke saath uska cause, method aur outcome bhi explain karo."),
+      "the making of a global world": () => make(
+        "Ek commodity grower, trader, shipper, factory aur customer alag countries mein ho sakte hain.",
+        ["Raw material ek region mein produce hota hai.", "Transport aur trade usse doosri jagah le jaate hain.", "Prices, migration, policy aur technology se producers aur consumers dono affect ho sakte hain."],
+        "Global links ka history trade, migration, labour, disease, technology aur policy ke through study kiya jata hai.",
+        "Textbook ke period-specific example ko use karo; modern example akela historical evidence nahi hai."),
+      "the age of industrialisation and print culture": () => make(
+        "Printed books aur newspapers ideas ko pehle se zyada readers tak pahunchane mein help kar sakte hain.",
+        ["Printing se copies ko relatively large scale par produce karna possible hua.", "Readers, publishers, writers aur authorities ke beech new relationships bane.", "Ideas ka spread education, religion aur politics par different effects la sakta tha."],
+        "Technology ka impact sirf machine par nahi, readers, workers aur public discussion par bhi dekho.",
+        "Industrialisation aur print culture ke topics ko separate concepts samajhkar examples revise karo."),
+      "resources and development": () => make(
+        "A village soil erosion rokne ke liye contour ploughing, trees aur water conservation use karta hai.",
+        ["Resource ka type aur local problem identify karo.", "Suitable conservation/planning method chuno.", "Explain karo method resource quality aur future use ko kaise protect karta hai."],
+        "Sustainable resource use present need aur future availability dono ko consider karta hai.",
+        "Resource classification aur resource planning ke stages separately revise karo."),
+      "forest, water, agriculture and minerals": () => make(
+        "Rainfall irregular ho to farmer rainwater harvesting aur irrigation scheduling consider karta hai.",
+        ["Water source aur local requirement identify karo.", "Storage, efficient irrigation ya watershed management jaise method ka role explain karo.", "Benefit ke saath limitation bhi note karo, jaise cost ya local conditions."],
+        "Resource management place, climate, demand aur community needs ke hisaab se plan hota hai.",
+        "Topic-specific map locations, crops/minerals aur conservation methods official list se practise karo."),
+      "manufacturing and lifelines of the economy": () => make(
+        "Textile factory ko cotton, workers, electricity, water aur market tak transport chahiye.",
+        ["Raw material aur labour identify karo.", "Power, water, transport aur market access location ko affect karte hain.", "Transport/communication finished goods ko customers tak le jaate hain."],
+        "Industry ki location multiple factors ka result hoti hai; ek factor se explanation complete nahi hoti.",
+        "Manufacturing aur lifelines topics mein prescribed examples/map work bhi revise karo."),
+      "power sharing and federalism": () => make(
+        "Country mein national, state aur local governments ke paas different responsibilities hain.",
+        ["Constitution ya law authorities ke functions divide kar sakta hai.", "Multiple levels local needs aur wider national issues handle karte hain.", "Power sharing conflicts ko negotiate karne aur concentration ko limit karne mein help kar sakti hai."],
+        "Federalism mein constitutional division of powers important feature hai.",
+        "Horizontal power sharing (institutions) aur vertical power sharing (levels of government) ko distinguish karo."),
+      "gender, religion, caste and political parties": () => make(
+        "Election mein candidates different communities ke concerns raise karte hain; rules ensure karne chahiye ki voters ko equal rights milein.",
+        ["Identity aur social differences ko identify karo.", "Dekho political process representation ko kaise affect kar raha hai.", "Example ke saath inclusion, discrimination ya party role explain karo."],
+        "Democracy mein social identities political life ko influence kar sakti hain, lekin discrimination ko justify nahi karti.",
+        "Stereotype ya unsupported generalisation ke bajay textbook-based example use karo."),
+      "outcomes of democracy": () => make(
+        "Kisi local government ka decision logon ko explain kiya jata hai aur citizens complaints raise kar sakte hain.",
+        ["Accountability check karo: decision-makers ko answer dena padta hai ya nahi.", "Responsiveness check karo: public concerns consider hue ya nahi.", "Equality, dignity aur public services jaise outcomes ke evidence dekho."],
+        "Democracy ke outcomes ko evidence aur limitations ke saath evaluate karna hota hai.",
+        "Sirf 'democracy good/bad hai' mat likho; criterion aur example ke saath reason do."),
+      "money, credit and globalisation": () => make(
+        "Small shop formal bank loan aur informal moneylender ke loan compare karti hai.",
+        ["Interest rate, collateral, repayment rules aur transparency compare karo.", "Formal credit ka access har person ko equally available hai ya nahi, ye bhi dekho.", "Globalisation ke case mein supply chains, trade aur worker/consumer impacts add karo."],
+        "Credit useful ho sakta hai, lekin loan ki terms repayment aur borrower ke risk ko determine karti hain.",
+        "Interest, collateral, formal/informal credit aur global production links ke terms clear rakho."),
+      "people as resource, poverty and food security": () => make(
+        "Family ke paas income ho, lekin food prices badhne se healthy meals afford karna mushkil ho jaye.",
+        ["Income aur food affordability dono dekho.", "Food availability, access aur stability food security ke important parts hain.", "Public distribution, nutrition support aur livelihood jaise measures ke role ko prescribed course ke according explain karo."],
+        "Food security sirf food ka market mein hona nahi; households ka us tak reliable access bhi zaroori hai.",
+        "Poverty, unemployment aur food security ke definitions ko alag-alag learn karo."),
+      "writing and city life": () => make(
+        "City ke officials grain deliveries aur taxes ka record maintain karna chahte hain.",
+        ["Repeated transactions ko record karna useful hai.", "Writing se records, administration aur trade information preserve ki ja sakti hai.", "Archaeologists tablets aur city remains se past urban life infer karte hain."],
+        "Writing aur urban administration/record-keeping ka link ancient city studies mein important hai.",
+        "Archaeological evidence kya show karta hai aur historian kya infer karta hai, alag batao."),
+      "empires and political power": () => make(
+        "Large empire ko distant regions govern karne ke liye local officials, revenue collection aur communication systems chahiye.",
+        ["Central ruler authority establish karta hai.", "Officials taxes, orders aur administration manage kar sakte hain.", "Local responses aur limits bhi empire ki power ko affect karte hain."],
+        "Empire ki power military control ke saath administration, resources aur legitimacy par bhi depend karti hai.",
+        "Specific empire ke examples, sources aur terminology textbook se revise karo."),
+      "nomadic empires": () => make(
+        "Mobile pastoral groups animals, routes aur seasonal resources ke saath move karte hain; kuch groups political/military power bhi build karte hain.",
+        ["Mobility terrain aur supply lines par advantage de sakti hai.", "Alliances, military organisation aur trade routes control power ko affect kar sakte hain.", "Conquest ke baad administration aur settled populations ke saath relations bhi matter karte hain."],
+        "Nomadic societies ko sirf movement se define mat karo; their political and economic organisation bhi study karo.",
+        "Prescribed empire/leader ka actual historical evidence aur dates verify karke likho."),
+      "modernisation and historical change": () => make(
+        "Kisi society mein new transport, factories ya government reforms aate hain.",
+        ["Change ke pehle ki situation describe karo.", "Naye technology/policy se daily life, work aur power kaise badle, identify karo.", "Kuch features continue aur kuch change hue, dono compare karo."],
+        "Modernisation ko ek single event nahi; social, economic aur political changes ke process ke roop mein study karo.",
+        "Answer mein jis specific society/period ka chapter hai, uske prescribed examples zaroor add karo."),
+      "geography as a discipline": () => make(
+        "Map par dekha gaya ki kuch settlements river ke paas hain aur kuch desert areas mein sparse hain.",
+        ["Pattern locate karo.", "Water, relief, climate aur transport jaise possible factors consider karo.", "Ek factor ko guaranteed single cause na batao; evidence ke saath link explain karo."],
+        "Geography places ke patterns aur physical/human factors ke relationships ko study karti hai.",
+        "Location batane ke saath cause aur impact bhi explain karne ki practice karo."),
+      "origin and evolution of the earth": () => make(
+        "Solar system formation ko samjhane wale model mein gas aur dust ka cloud gravity se contract hota hai.",
+        ["Gravity matter ko ek region ki taraf pull karti hai.", "Central region se Sun aur around material se smaller bodies form ho sakte hain.", "Scientific model ko observations/evidence se compare kiya jata hai."],
+        "Earth ki formation ko solar-system formation ke broader model se connect karke samjho.",
+        "Prescribed textbook mein jis theory/model par emphasis hai, uski terminology aur evidence wahi use karo."),
+      "interior of the earth and rocks": () => make(
+        "Volcano se nikla lava thanda hokar hard rock banata hai.",
+        ["Lava molten material hai jo surface par aata hai.", "Cooling aur solidification se igneous rock form ho sakti hai.", "Rock type ko uski formation process se link karo."],
+        "Igneous rocks molten material ke cooling/solidification se banti hain.",
+        "Igneous, sedimentary aur metamorphic rocks ki formation ko compare karo."),
+      "human geography and population": () => make(
+        "Ek town mein 10,000 people 5 km² area mein rehte hain.",
+        ["Population density = people ÷ area.", "10,000 ÷ 5 = 2,000.", "Unit people per km² likho."],
+        "Population density = 2,000 people/km².",
+        "Population count aur population density ko mix mat karo."),
+      "human development": () => make(
+        "Do places ki income similar hai, lekin ek mein life expectancy aur schooling better hai.",
+        ["Income development ka ek dimension hai.", "Health aur education indicators compare karo.", "Explain karo ki opportunities aur public services overall human development ko affect karte hain."],
+        "Human development ko income ke saath health, education aur opportunities se assess kiya jata hai.",
+        "A single indicator se full development conclusion mat nikalo."),
+      "the cold war and bipolarity": () => make(
+        "Second World War ke baad United States aur Soviet Union major rival power centres ban gaye.",
+        ["Dono systems/strategic interests ke differences samjho.", "Alliances aur arms competition ne wider world politics ko affect kiya.", "Many conflicts proxy wars, diplomacy aur blocs ke through hue."],
+        "Bipolarity ka matlab world politics mein do dominant power centres ka hona.",
+        "Cold War ko direct continuous US–USSR battlefield war ke roop mein define mat karo."),
+      "end of bipolarity and us dominance": () => make(
+        "Soviet Union ke breakup ke baad pehle wala two-bloc structure change ho gaya.",
+        ["Breakup aur independence of republics ko chronology mein samjho.", "Former Soviet states ke political/economic transitions ko note karo.", "Global power relations par consequences explain karo."],
+        "End of bipolarity ne international relations aur regional politics ko reshape kiya.",
+        "Immediate cause, long-term factors aur after-effects ko separate karke answer do."),
+      "south asia and international organisations": () => make(
+        "Neighbouring countries flood response, trade ya public health par cooperation karna chahti hain.",
+        ["Shared issue identify karo.", "Regional/global organisation discussion aur cooperation ka forum de sakti hai.", "Cooperation ki possibilities ke saath political differences/limitations bhi note karo."],
+        "International organisations countries ko dialogue aur collective action ke forums deti hain, but results depend on members and rules.",
+        "Organisation ka naam tabhi likho jab uska role aur relevance sure ho."),
+      "security and the environment": () => make(
+        "Long drought se water, crops aur livelihoods par pressure badhta hai.",
+        ["Environmental change ko identify karo.", "Food/water access, health, displacement ya livelihoods par impact trace karo.", "Possible local aur international cooperation measures discuss karo."],
+        "Non-traditional security concerns logon ki wellbeing aur stability ko affect kar sakte hain.",
+        "Security ke traditional (military) aur non-traditional (environment/health) dimensions alag define karo."),
+      "equilibrium": () => make(
+        "Reversible reaction ek closed system mein aage aur peeche dono directions mein chal sakti hai.",
+        ["Equilibrium par forward aur reverse reactions ki rates equal hoti hain.", "Concentrations constant dikh sakti hain, lekin reaction microscopic level par rukti nahi.", "Concentration, pressure ya temperature changes ka effect prescribed equilibrium rules se predict karo."],
+        "Chemical equilibrium dynamic hota hai; forward aur reverse reaction rates equal hoti hain.",
+        "Equal rates ka matlab concentrations equal hona zaroori nahi."),
+      "dual nature of radiation and matter": () => make(
+        "High-enough-frequency light metal par padti hai aur electrons eject ho sakte hain.",
+        ["Photoelectric emission ke liye frequency threshold se upar honi chahiye.", "Light frequency photon energy se linked hai.", "Intensity aur frequency ka effect alag samjho; prescribed equation use karo."],
+        "Photoelectric effect light ke particle-like behaviour ka evidence deta hai.",
+        "Threshold frequency aur intensity ko interchange mat karo."),
+      "human reproduction and reproductive health": () => make(
+        "Human reproduction mein sperm aur ovum milkar zygote form karte hain.",
+        ["Fertilisation gametes ke fusion ko kehte hain.", "Zygote cell division se development start karta hai.", "Placenta pregnancy mein maternal aur foetal systems ke beech material exchange support karta hai."],
+        "Gamete, fertilisation, zygote aur placenta ke roles ko correct sequence mein samjho.",
+        "Biology answers scientific and respectful language mein likho; structures aur functions mix mat karo."),
+      "electromagnetic waves": () => make(
+        "Radio waves communication ke liye aur X-rays medical imaging mein use hoti hain.",
+        ["Electromagnetic spectrum mein waves ki frequency aur wavelength different hoti hain.", "Vacuum mein electromagnetic waves speed of light se travel karti hain.", "Wave type ko uski wavelength/frequency aur application se connect karo."],
+        "Radio, visible light, X-rays aur other EM waves same family ke hain, but frequency/wavelength ranges differ karti hain.",
+        "Spectrum ka order prescribed textbook ke chart se practise karo."),
+      "business services and finance": () => make(
+        "Shop goods purchase karti hai, unhe warehouse mein store karati hai, insurance leti hai aur customer tak transport karati hai.",
+        ["Warehousing goods ko temporarily store karti hai.", "Transport goods ko move karta hai; insurance specified financial risk cover kar sakta hai.", "Banking payments aur working capital mein help kar sakti hai."],
+        "Business services alag problems solve karti hain—storage, movement, payment aur risk.",
+        "Service ka naam, function aur simple example pair mein yaad karo."),
+      "national income accounting": () => make(
+        "Ek economy mein final goods and services ka market value ek given year mein measure karna hai.",
+        ["Final goods/services include karo.", "Intermediate inputs ko final output ke saath dobara count mat karo.", "Same period aur market-price conventions use karke GDP-type aggregate calculate/interpret karo."],
+        "Double counting avoid karna national income accounting ka central rule hai.",
+        "GDP, GNP/GNI aur national income terms ko current syllabus definitions ke saath revise karo."),
+      "income determination": () => make(
+        "Simplified model mein planned aggregate spending ₹100 aur output ₹100 ke equal hain.",
+        ["Planned demand/output compare karo.", "Jab planned spending output ke equal ho, is simple model mein equilibrium condition meet hoti hai.", "Demand/output mismatch ho to inventory ya production decisions adjust ho sakte hain."],
+        "Simple Keynesian model mein equilibrium output tab hota hai jab planned aggregate expenditure output ke equal ho.",
+        "Model ke assumptions aur prescribed formula clearly state karo."),
+      "government budget": () => make(
+        "Government ka total expenditure ₹120 units hai aur borrowings ko chhodkar receipts ₹100 units hain.",
+        ["Total expenditure note karo: 120.", "Receipts excluding borrowings note karo: 100.", "Difference 20 hai, jo fiscal deficit ki broad definition se match karta hai."],
+        "Fiscal deficit = total expenditure − receipts excluding borrowings; is example mein 20 units.",
+        "Revenue deficit aur fiscal deficit ko alag formulas ke saath yaad karo."),
+      "balance of payments and exchange rates": () => make(
+        "Ek country goods exports ₹100 aur goods imports ₹80 value karti hai.",
+        ["Exports minus imports = 100−80 = 20.", "Goods trade balance mein surplus 20 hai.", "Full balance of payments mein services, income, transfers aur financial transactions bhi aate hain."],
+        "Goods trade surplus 20 units hai, lekin ye full balance-of-payments position nahi batata.",
+        "Exchange rate ka effect explain karte waqt currency kis direction mein appreciate/depreciate hui, clear batao."),
+      "financial statements and analysis": () => make(
+        "Business ke current assets ₹20,000 aur current liabilities ₹10,000 hain.",
+        ["Current ratio = current assets ÷ current liabilities.", "20,000 ÷ 10,000 = 2.", "Answer ko 2:1 ratio ke roop mein likho."],
+        "Current ratio = 2:1.",
+        "Correct period aur correct balance-sheet figures use karo; ratio ka meaning bhi likho."),
+      "cash flow statement": () => make(
+        "Cash opening balance ₹5,000 hai. Cash inflow ₹3,000 aur cash outflow ₹1,200 hai.",
+        ["Net increase = inflow − outflow = 3,000−1,200 = 1,800.", "Closing cash = opening cash + net increase.", "5,000+1,800=6,800."],
+        "Closing cash = ₹6,800, if these are all cash movements for the period.",
+        "Cash flow items ko operating, investing aur financing activities mein prescribed rules ke according classify karo."),
+      "accounting for share capital and debentures": () => make(
+        "Company 100 shares issue karti hai at ₹10 per share; full amount receive hota hai.",
+        ["Shares ki count = 100.", "Issue price = ₹10 per share.", "Share capital proceeds = 100×10=₹1,000."],
+        "Received share capital amount ₹1,000 hai; debenture issue borrowing/debt ko represent karta hai.",
+        "Shares (ownership capital) aur debentures (debt) ka distinction answer mein clear likho.")
     };
     if (topicExamples[t]) return topicExamples[t]();
     for (const [pattern, build] of rules) if (pattern.test(t)) return build();
