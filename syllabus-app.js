@@ -75,7 +75,7 @@
     if (/determinant/.test(t) && /math/.test(v)) return "Determinant square matrix se nikla ek number hai. Iska value zero ho to matrix singular hoti hai aur uska inverse nahi hota. Calculation mein signs aur row/column ke terms carefully likho.";
     if (/math/.test(v) && /\bsets?\b|\brelations?\b|\bfunctions?\b/.test(t)) return "Set ek clearly defined collection hota hai, jaise A={1,2,3}. Function mein har input ka exactly ek output hota hai. Domain inputs hain aur range actual outputs; question mein element, subset aur mapping ko confuse mat karo.";
     if (/chemical reaction|equation/.test(t) && /chemistry|science/.test(v)) return "Chemical reaction mein starting substances badal kar naye substances banate hain. Equation balance karne ka matlab dono taraf har element ke atoms ki count same karna hai. Formula ke chhote numbers (subscripts) change mat karo; coefficients badlo.";
-    if (/acid|base|salt|ph/.test(t)) return "Acid, base aur salt ke alag properties hoti hain. Indicator ya pH se solution ka nature samajh sakte ho; aqueous solution mein pH 7 se kam generally acidic aur pH 7 se zyada basic hota hai. Question mein observation ke saath reason bhi likho.";
+    if (/acid|base|salt|\bph\b/.test(t)) return "Acid, base aur salt ke alag properties hoti hain. Indicator ya pH se solution ka nature samajh sakte ho; aqueous solution mein pH 7 se kam generally acidic aur pH 7 se zyada basic hota hai. Question mein observation ke saath reason bhi likho.";
     if (/metal|non-metal/.test(t)) return "Metals aur non-metals ko properties aur reactions se compare karo. Reactivity series batati hai kaun sa metal zyada reactive hai. More reactive metal kisi less reactive metal ko uske compound se displace kar sakta hai, jab reaction conditions allow karein.";
     if (/biomolecule/.test(t) && /biology/.test(v)) return "Biomolecules living things mein milne wale compounds hain. Carbohydrates energy mein, proteins structure/enzymes mein, lipids membranes aur energy storage mein, aur nucleic acids genetic information mein role play karte hain. Prescribed textbook ke examples se functions yaad karo.";
     if (/carbon and its compounds|hydrocarbon|organic chemistry|haloalkane|alcohol|phenol|ether|aldehyde|ketone|carboxylic|amine/.test(t)) return "Organic chemistry mein compound ka structure aur functional group pehchanna important hai. Pehle carbon chain aur group identify karo, phir name, properties ya reaction likho. Same formula wale compounds ka structure alag bhi ho sakta hai.";
@@ -289,7 +289,7 @@
         ["Left side par oxygen ke 2 atoms hain; right par 1.", "H₂O ke aage coefficient 2 lagao: H₂ + O₂ → 2H₂O.", "Ab hydrogen right par 4 atoms ho gaye, so H₂ ke aage 2 lagao."],
         "Balanced equation: 2H₂ + O₂ → 2H₂O.",
         "Balance karne ke liye coefficients change karo; formula ke subscripts nahi.")],
-      [/acid|base|salt|ph/, () => make(
+      [/acid|base|salt|\bph\b/, () => make(
         "Lemon juice blue litmus paper par drop kiya jata hai.",
         ["Lemon juice acidic hota hai.", "Blue litmus acid mein red ho jata hai.", "Observation ke saath 'acidic' conclusion likho."],
         "Blue litmus red hona acidic solution ka indicator hai.",
